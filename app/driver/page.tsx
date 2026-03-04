@@ -1,8 +1,10 @@
-"use client";
+ "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function DriverDashboardPage() {
+  const router = useRouter();
   const [isOnline, setIsOnline] = useState(true);
   const [showNotificationToast, setShowNotificationToast] = useState(false);
   const [driverName, setDriverName] = useState<string>("EcoQuick Driver");
