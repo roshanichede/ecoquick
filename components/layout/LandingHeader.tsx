@@ -18,7 +18,7 @@ export function LandingHeader() {
         </span>
       </Link>
 
-      <nav className="hidden items-center gap-7 text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500 md:flex">
+      <nav className="flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-500 md:gap-7 md:text-xs">
         <Link href="/" className="transition hover:text-zinc-900">
           Dashboard
         </Link>
@@ -36,7 +36,7 @@ export function LandingHeader() {
       <div className="flex items-center gap-3">
         <Link
           href="/login"
-          className="hidden text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500 transition hover:text-zinc-900 sm:inline-flex"
+          className="inline-flex text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-500 transition hover:text-zinc-900 sm:text-xs"
         >
           Log in
         </Link>
