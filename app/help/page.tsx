@@ -1,0 +1,261 @@
+import Link from "next/link";
+import { LandingHeader } from "../../components/layout/LandingHeader";
+import { LandingFooter } from "../../components/layout/LandingFooter";
+
+export default function HelpPage() {
+  return (
+    <div className="landing-shell bg-white text-slate-900 antialiased">
+      <div className="landing-grid-layer" />
+
+      <div className="landing-content mx-auto w-full max-w-6xl px-6 lg:px-8">
+        <LandingHeader />
+      </div>
+
+      <main className="landing-content min-h-screen pt-6">
+        {/* Hero */}
+        <section className="relative flex flex-col items-center justify-center overflow-hidden bg-white px-4 py-20 sm:px-6 lg:px-8">
+          <div className="absolute inset-0 z-0 opacity-5">
+            <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[#3e0074] blur-3xl" />
+            <div className="absolute top-1/2 -left-24 h-64 w-64 rounded-full bg-[#3e0074] blur-3xl" />
+          </div>
+          <div className="relative z-10 w-full max-w-3xl text-center">
+            <h1 className="mb-4 font-display text-5xl font-black tracking-tight text-slate-900 md:text-6xl">
+              Help center
+            </h1>
+            <p className="mb-10 text-lg font-medium text-slate-500">
+              How can we help you today?
+            </p>
+            <div className="relative w-full shadow-xl">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+                <span className="text-slate-400">🔍</span>
+              </div>
+              <input
+                type="text"
+                placeholder="Search for articles, topics, or keywords..."
+                className="block w-full border-2 border-gray-100 bg-white py-4 pl-12 pr-24 text-lg text-slate-900 placeholder:text-slate-400 transition-all focus:border-[#3e0074] focus:outline-none focus:ring-1 focus:ring-[#3e0074]"
+              />
+              <button className="absolute inset-y-0 right-0 bg-[#3e0074] px-6 text-sm font-bold text-white transition-colors hover:bg-[#2f005a]">
+                Search
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Instant support cards */}
+        <section className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "Live chat",
+                body: "Chat with our support team instantly for quick resolutions.",
+                cta: "Start chat",
+                icon: "💬",
+              },
+              {
+                title: "Call support",
+                body: "Speak directly with a representative. Wait times under 2 mins.",
+                cta: "Call now",
+                icon: "☎️",
+              },
+              {
+                title: "Email support",
+                body: "Send us a detailed inquiry and we’ll respond within 24 hours.",
+                cta: "Send email",
+                icon: "✉️",
+              },
+            ].map((card) => (
+              <div
+                key={card.title}
+                className="group flex cursor-pointer flex-col items-start gap-4 border border-[#3e0074]/10 bg-[#3e0074]/[0.03] p-8 transition-all hover:border-[#3e0074]/30 hover:bg-[#3e0074]/[0.05]"
+              >
+                <div className="flex h-12 w-12 items-center justify-center border border-gray-100 bg-white text-xl text-[#3e0074] shadow-sm">
+                  <span>{card.icon}</span>
+                </div>
+                <div>
+                  <h3 className="mb-1 font-display text-xl font-bold text-slate-900">
+                    {card.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-slate-500">
+                    {card.body}
+                  </p>
+                </div>
+                <div className="mt-auto flex items-center pt-4 text-sm font-bold text-[#3e0074] group-hover:underline">
+                  {card.cta} <span className="ml-1 text-sm">→</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Topics grid */}
+        <section className="mx-auto max-w-7xl border-t border-gray-100 px-6 py-12 lg:px-8">
+          <div className="mb-10">
+            <h2 className="font-display text-3xl font-bold text-slate-900">
+              Browse topics
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-px overflow-hidden border border-gray-200 bg-gray-200 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: "Booking",
+                icon: "📅",
+                items: [
+                  "How to schedule a pickup",
+                  "Modifying a booking",
+                  "Cancel a reservation",
+                ],
+              },
+              {
+                title: "Tracking",
+                icon: "🚚",
+                items: [
+                  "Where is my package?",
+                  "Tracking status explained",
+                  "Report missing items",
+                ],
+              },
+              {
+                title: "Payments",
+                icon: "💳",
+                items: [
+                  "Payment methods",
+                  "Request a refund",
+                  "Invoice help",
+                ],
+              },
+              {
+                title: "Safety",
+                icon: "🛡️",
+                items: [
+                  "Package insurance",
+                  "Driver verification",
+                  "Contactless delivery",
+                ],
+              },
+              {
+                title: "Areas",
+                icon: "🗺️",
+                items: [
+                  "Service coverage map",
+                  "International shipping",
+                  "Local zone rates",
+                ],
+              },
+              {
+                title: "Account",
+                icon: "👤",
+                items: [
+                  "Reset password",
+                  "Update profile",
+                  "Business accounts",
+                ],
+              },
+            ].map((topic) => (
+              <div
+                key={topic.title}
+                className="bg-white p-8 transition-colors hover:bg-gray-50"
+              >
+                <div className="mb-6 flex items-center gap-3">
+                  <span className="text-3xl text-[#3e0074]">
+                    {topic.icon}
+                  </span>
+                  <h3 className="font-display text-lg font-bold text-slate-900">
+                    {topic.title}
+                  </h3>
+                </div>
+                <ul className="space-y-3">
+                  {topic.items.map((item) => (
+                    <li key={item}>
+                      <a
+                        href="#"
+                        className="flex items-center text-sm text-slate-600 transition-colors hover:text-[#3e0074]"
+                      >
+                        <span className="mr-3 h-1.5 w-1.5 rounded-full bg-gray-300" />
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="mx-auto max-w-4xl px-6 py-16 lg:px-8">
+          <h2 className="mb-10 text-center font-display text-3xl font-bold text-slate-900">
+            Frequently asked questions
+          </h2>
+          <div className="space-y-6">
+            {[
+              {
+                q: "How do I change my delivery address after booking?",
+                a: "You can change the delivery address within the first 15 minutes of booking directly through the app. After this grace period, please contact our support team immediately. Additional fees may apply based on the new distance.",
+              },
+              {
+                q: "What items are prohibited from shipping?",
+                a: "We strictly prohibit the transport of hazardous materials, illegal substances, firearms, and live animals. Please refer to our complete Terms of Service for a detailed list of restricted items to ensure compliance and safety.",
+              },
+              {
+                q: "How does the eco-friendly delivery option work?",
+                a: 'Our "Eco-Saver" option utilizes electric vehicles and optimized batch routing to minimize carbon emissions. While delivery times may be slightly longer, this option reduces the carbon footprint of your shipment by up to 45%.',
+              },
+              {
+                q: "Can I schedule a recurring pickup for my business?",
+                a: "Yes! Business accounts have access to the Recurring Routes feature. You can set weekly, daily, or monthly pickup schedules. Contact our sales team to set up a business account with volume discounts.",
+              },
+            ].map((item) => (
+              <details
+                key={item.q}
+                className="group cursor-pointer border-b border-gray-100 pb-6 open:pb-6"
+              >
+                <summary className="flex list-none items-start justify-between gap-4 text-slate-900 transition-colors group-hover:text-[#3e0074]">
+                  <span className="font-display text-xl font-bold leading-tight md:text-2xl">
+                    {item.q}
+                  </span>
+                  <span className="transition-transform duration-300 group-open:rotate-180">
+                    ▼
+                  </span>
+                </summary>
+                <div className="mt-4 max-w-2xl leading-relaxed text-slate-600">
+                  {item.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        {/* Emergency banner */}
+        <section className="mt-12 bg-[#3e0074] px-6 py-12 text-white lg:px-8">
+          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
+            <div className="text-center md:text-left">
+              <h2 className="mb-2 font-display text-3xl font-black tracking-tight">
+                Need immediate help?
+              </h2>
+              <p className="text-lg text-[#f2f0f5]/80">
+                Our emergency response team is available 24/7 for critical
+                issues.
+              </p>
+            </div>
+            <div className="flex items-center gap-4 border border-white/10 bg-white/10 px-8 py-4 backdrop-blur-sm">
+              <span className="text-3xl text-[#ff9b16]">📞</span>
+              <div className="flex flex-col">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] opacity-70">
+                  Emergency line
+                </span>
+                <span className="font-display text-2xl font-bold tracking-tight">
+                  1-800-ECO-HELP
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div className="landing-content mx-auto w-full max-w-6xl px-6 lg:px-8">
+        <LandingFooter />
+      </div>
+    </div>
+  );
+}
+
