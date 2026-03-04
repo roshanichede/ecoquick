@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { BookingStepper } from "../../../components/book/BookingStepper";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export default function BookConfirmPage() {
   const router = useRouter();
@@ -26,16 +27,7 @@ export default function BookConfirmPage() {
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center bg-primary">
-              <span className="material-symbols-outlined text-xl text-accent">
-                bolt
-              </span>
-            </div>
-            <span className="text-xl font-extrabold uppercase tracking-tight text-primary">
-              EcoQuick
-            </span>
-          </div>
+          <BrandLogo size="sm" />
           <nav className="hidden items-center gap-6 md:flex">
             <Link
               href="/book/type"

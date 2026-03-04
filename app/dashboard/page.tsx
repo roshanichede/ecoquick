@@ -1,8 +1,9 @@
-"use client";
+ "use client";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { CustomerSidebar } from "../../components/layout/CustomerSidebar";
+import { CustomerTopBar } from "@/components/layout/CustomerTopBar";
+import { CustomerMobileNav } from "@/components/layout/CustomerMobileNav";
 
 export default function CustomerDashboardPage() {
   const router = useRouter();
@@ -33,193 +34,178 @@ export default function CustomerDashboardPage() {
   }
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-white text-primary">
-      <CustomerSidebar />
+    <div className="page-fade min-h-screen overflow-x-hidden bg-white text-primary">
+      <CustomerTopBar />
 
-      <main className="min-h-screen pb-20 lg:ml-64 lg:pb-0">
-        <header className="sticky top-0 z-40 flex items-center justify-between border-b border-primary bg-white px-4 py-2 lg:px-12 lg:py-3">
-          <div className="flex items-center gap-2 lg:hidden">
-            <div className="flex h-7 w-7 items-center justify-center bg-primary sharp-edge">
-              <span className="material-symbols-outlined text-base text-white">
-                bolt
-              </span>
-            </div>
-            <span className="text-lg font-black uppercase tracking-tighter">
-              EQ
-            </span>
-          </div>
-          <div className="ml-auto flex flex-col items-end gap-1">
-            <div className="flex items-center gap-4 lg:gap-6">
-              <button
-                className="material-symbols-outlined text-xl text-primary transition-colors hover:text-accent"
-                onClick={() => router.push("/help")}
-              >
-                notifications
-              </button>
-              <div className="flex items-center gap-2 lg:gap-3">
-                <div className="hidden text-right sm:block">
-                  <p className="text-[9px] font-black uppercase tracking-widest">
-                    {customerName}
-                  </p>
-                  <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-accent">
-                    Member Since 2023
-                  </p>
-                </div>
-                <div className="sharp-edge h-8 w-8 border border-primary p-0.5 lg:h-9 lg:w-9">
-                  <div className="flex h-full w-full items-center justify-center bg-primary">
-                    <span className="material-symbols-outlined text-xs text-white lg:text-sm">
-                      person
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button
-              className="text-[9px] font-bold uppercase tracking-[0.2em] text-primary underline-offset-4 hover:underline"
-              onClick={() => {
-                if (typeof window !== "undefined") {
-                  window.sessionStorage.removeItem("ecoquickCustomerName");
-                  window.sessionStorage.removeItem("ecoquickCustomerEmail");
-                }
-                router.push("/login");
-              }}
-            >
-              Sign out
-            </button>
-          </div>
-        </header>
-
-        <div
-          className="max-w-[1400px] px-4 py-6 lg:px-12 lg:py-8"
-          id="dashboard-top"
-        >
-          <section className="mb-6 lg:mb-8">
-            <h1 className="mb-4 text-2xl font-black leading-none tracking-tighter lg:mb-5 lg:text-3xl">
-              Hello, <span className="accent-underline">{customerName}</span>
+      <main className="mx-auto min-h-screen max-w-6xl pb-16 lg:pb-20">
+        <div className="px-5 py-6 sm:px-6 lg:py-10" id="dashboard-top">
+          <section className="mb-8 lg:mb-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/40">
+              Customer dashboard
+            </p>
+            <h1 className="mt-3 text-2xl font-semibold tracking-tight text-[#151018] sm:text-3xl">
+              Welcome back,{" "}
+              <span className="accent-underline">{customerName}</span>
             </h1>
-            <div className="flex w-full flex-row border border-primary lg:w-fit">
+            <p className="mt-2 text-sm font-normal text-[#5a5a5a]">
+              Create a new EcoQuick delivery or review your recent activity.
+            </p>
+
+            <div className="mt-6 inline-flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <button
-                className="sharp-edge flex flex-1 items-center justify-center gap-2 bg-primary px-3 py-2.5 text-[9px] font-black uppercase tracking-[0.1em] text-white transition-colors hover:bg-black lg:flex-none lg:px-8 lg:py-3.5 lg:text-[10px]"
+                className="inline-flex items-center justify-center gap-2 border border-primary bg-primary px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-sm transition-colors hover:bg-[#2f005a]"
                 onClick={() => router.push("/book/type")}
               >
                 <span className="material-symbols-outlined text-sm text-accent">
                   add_circle
                 </span>
-                New
+                New delivery
               </button>
-              <button className="sharp-edge flex-1 border-l border-primary bg-white px-3 py-2.5 text-[9px] font-black uppercase tracking-[0.1em] text-primary transition-colors hover:bg-primary/5 lg:flex-none lg:px-8 lg:py-3.5 lg:text-[10px]">
-                Track
-              </button>
-              <button className="sharp-edge flex-1 border-l border-primary bg-white px-3 py-2.5 text-[9px] font-black uppercase tracking-[0.1em] text-primary transition-colors hover:bg-primary/5 lg:flex-none lg:px-8 lg:py-3.5 lg:text-[10px]">
-                History
+              <button
+                className="inline-flex items-center justify-center border border-zinc-200 bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary transition-colors hover:bg-zinc-50"
+                onClick={() => router.push("/orders")}
+              >
+                View orders
               </button>
             </div>
           </section>
 
-          <section className="relative mb-8 overflow-hidden border border-primary bg-white p-6 lg:mb-10 lg:p-8">
-            <div className="pointer-events-none absolute right-0 top-0 h-full w-1/3 translate-x-1/2 -skew-x-12 bg-primary/5" />
-            <div className="relative z-10 flex flex-col items-center text-center lg:items-start lg:text-left">
-              <h2 className="mb-1.5 text-xl font-black uppercase leading-tight tracking-tighter lg:mb-2 lg:text-2xl">
-                Ready for your first delivery?
+          <section className="relative mb-10 overflow-hidden rounded-lg border border-primary/10 bg-[rgba(62,0,116,0.015)] p-6 lg:p-8">
+            <div className="pointer-events-none absolute right-[-120px] top-[-80px] hidden h-56 w-56 rounded-full border border-primary/20 sm:block lg:border-primary/30" />
+            <div className="pointer-events-none absolute right-[-40px] bottom-[-80px] h-40 w-40 rounded-full border border-primary/20 sm:block lg:border-primary/30" />
+            <div className="relative z-10 mx-auto flex max-w-xl flex-col items-center gap-4 text-center">
+              <h2 className="text-lg font-semibold tracking-tight text-[#151018] sm:text-xl">
+                Ready for your next delivery?
               </h2>
-              <p className="mb-5 max-w-sm px-4 text-[10px] font-medium text-primary/60 lg:mb-6 lg:max-w-md lg:px-0 lg:text-xs">
-                Precision, speed, and environmental accountability for
-                high-value assets.
+              <p className="text-sm font-normal leading-relaxed text-[#5a5a5a]">
+                Keep your parcels moving with fast, low-emission deliveries
+                across the city — optimized for time and carbon impact.
               </p>
               <button
-                className="sharp-edge border border-accent/30 bg-primary px-6 py-3 text-[9px] font-black uppercase tracking-[0.3em] text-white shadow-[4px_4px_0px_#ff9b16] transition-colors hover:bg-black lg:px-10 lg:py-4 lg:text-[10px] lg:shadow-[6px_6px_0px_#ff9b16]"
+                className="inline-flex items-center justify-center border border-accent/40 bg-primary px-10 py-3.5 text-xs font-semibold uppercase tracking-[0.28em] text-white shadow-[4px_4px_0px_#ff9b16] transition-transform transition-colors hover:-translate-y-0.5 hover:bg-black"
                 onClick={() => router.push("/book/type")}
               >
-                Book Now
+                Book now
               </button>
             </div>
           </section>
 
-          <section className="mb-8 lg:mb-10" id="overview-section">
-            <h3 className="mb-3 text-[8px] font-black uppercase tracking-[0.2em] opacity-40 lg:mb-4 lg:text-[9px]">
-              System Overview
-            </h3>
-            <div className="checkerboard-grid grid grid-cols-2 lg:grid-cols-4">
-              <div className="flex min-h-[130px] flex-col justify-between p-4 lg:min-h-[140px] lg:p-6 aspect-square lg:aspect-auto">
-                <span className="material-symbols-outlined text-xl text-accent lg:text-2xl">
+          <section className="mb-10 lg:mb-12" id="overview-section">
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <h3 className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/50">
+                Overview
+              </h3>
+              <button
+                className="hidden text-[10px] font-semibold uppercase tracking-[0.18em] text-primary/70 hover:text-primary md:inline-flex"
+                onClick={() => scrollToId("impact-section")}
+              >
+                View impact summary
+              </button>
+            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {/* Card 1 - light */}
+              <div className="flex flex-col justify-between rounded-lg border border-primary/10 bg-white p-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary/50">
+                    Active deliveries
+                  </span>
+                  <span className="material-symbols-outlined text-base text-accent">
                   inventory_2
                 </span>
-                <div>
-                  <p className="text-2xl font-black leading-none lg:text-4xl">
-                    24
-                  </p>
-                  <p className="mt-0.5 text-[7px] font-black uppercase tracking-widest lg:text-[9px]">
-                    Active
-                  </p>
                 </div>
+                <p className="mt-4 text-3xl font-semibold tracking-tight text-[#151018]">
+                  24
+                </p>
+                <p className="mt-1 text-xs text-[#5a5a5a]">couriers currently on route</p>
               </div>
-              <div className="flex min-h-[130px] flex-col justify-between p-4 lg:min-h-[140px] lg:p-6 aspect-square lg:aspect-auto">
-                <span className="material-symbols-outlined text-xl text-accent lg:text-2xl">
-                  eco
-                </span>
-                <div>
-                  <p className="text-2xl font-black leading-none text-white lg:text-4xl">
-                    12.8kg
-                  </p>
-                  <p className="mt-0.5 text-[7px] font-black uppercase tracking-widest lg:text-[9px]">
-                    CO2 Offset
-                  </p>
+              {/* Card 2 - purple */}
+              <div className="flex flex-col justify-between rounded-lg border border-primary/10 bg-primary p-4 text-white">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/70">
+                    CO₂ offset
+                  </span>
+                  <span className="material-symbols-outlined text-base text-accent">
+                    eco
+                  </span>
                 </div>
+                <p className="mt-4 text-3xl font-semibold tracking-tight">
+                  12.8kg
+                </p>
+                <p className="mt-1 text-xs text-white/80">
+                  saved across your recent deliveries
+                </p>
               </div>
-              <div className="flex min-h-[130px] flex-col justify-between p-4 lg:min-h-[140px] lg:p-6 aspect-square lg:aspect-auto">
-                <span className="material-symbols-outlined text-xl text-accent lg:text-2xl">
-                  payments
-                </span>
-                <div>
-                  <p className="text-2xl font-black leading-none text-white lg:text-4xl">
-                    £482
-                  </p>
-                  <p className="mt-0.5 text-[7px] font-black uppercase tracking-widest lg:text-[9px]">
-                    Credits
-                  </p>
+              {/* Card 3 - light */}
+              <div className="flex flex-col justify-between rounded-lg border border-primary/10 bg-white p-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary/50">
+                    Credit balance
+                  </span>
+                  <span className="material-symbols-outlined text-base text-accent">
+                    payments
+                  </span>
                 </div>
+                <p className="mt-4 text-3xl font-semibold tracking-tight text-[#151018]">
+                  £482
+                </p>
+                <p className="mt-1 text-xs text-[#5a5a5a]">
+                  available for upcoming bookings
+                </p>
               </div>
-              <div className="flex min-h-[130px] flex-col justify-between p-4 lg:min-h-[140px] lg:p-6 aspect-square lg:aspect-auto">
-                <span className="material-symbols-outlined text-xl text-accent lg:text-2xl">
-                  star
-                </span>
-                <div>
-                  <p className="text-2xl font-black leading-none lg:text-4xl">
-                    4.9
-                  </p>
-                  <p className="mt-0.5 text-[7px] font-black uppercase tracking-widest lg:text-[9px]">
-                    Rating
-                  </p>
+              {/* Card 4 - purple */}
+              <div className="flex flex-col justify-between rounded-lg border border-primary/10 bg-primary p-4 text-white">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/70">
+                    Customer rating
+                  </span>
+                  <span className="material-symbols-outlined text-base text-accent">
+                    star
+                  </span>
                 </div>
+                <p className="mt-4 text-3xl font-semibold tracking-tight">
+                  4.9
+                </p>
+                <p className="mt-1 text-xs text-white/80">
+                  based on your last 100 deliveries
+                </p>
               </div>
             </div>
           </section>
 
-          <section className="mb-8 lg:mb-12" id="impact-section">
-            <div className="relative flex flex-col items-center justify-between gap-6 overflow-hidden border-b-2 border-accent bg-primary p-6 text-white lg:flex-row lg:gap-8 lg:p-8">
-              <div className="relative z-10 w-full text-center lg:text-left">
-                <h3 className="mb-3 text-[8px] font-black uppercase tracking-[0.2em] opacity-60 lg:mb-4 lg:text-[9px]">
-                  Impact Efficiency
-                </h3>
-                <div className="mb-1 flex items-center justify-center gap-3 lg:justify-start">
-                  <span className="text-4xl font-black leading-none lg:text-6xl">
+          <section className="mb-4 lg:mb-6" id="impact-section">
+            <div className="relative overflow-hidden rounded-lg border border-primary/10 bg-white p-6 lg:p-8">
+              <div className="relative z-10 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                <div>
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/60">
+                    Impact efficiency
+                  </h3>
+                  <div className="mt-3 flex items-baseline gap-3">
+                    <span className="text-4xl font-semibold tracking-tight text-[#151018] lg:text-5xl">
                     85%
                   </span>
-                  <span className="material-symbols-outlined text-2xl text-accent lg:text-4xl">
+                    <span className="material-symbols-outlined text-xl text-accent lg:text-2xl">
                     energy_savings_leaf
                   </span>
                 </div>
-                <p className="mx-auto max-w-xs text-[10px] font-bold leading-tight opacity-90 lg:mx-0 lg:max-w-md lg:text-sm">
-                  Supply chain outperforming 85% of regional competitors.
-                </p>
-              </div>
-              <div className="relative z-10 w-full lg:w-auto">
-                <button
-                  className="sharp-edge w-full border border-accent px-6 py-3 text-[8px] font-black uppercase tracking-[0.2em] text-accent transition-all hover:bg-accent hover:text-primary lg:w-auto lg:px-8 lg:py-3.5 lg:text-[10px]"
-                  onClick={() => router.push("/business")}
-                >
-                  Export Data
-                </button>
+                  <p className="mt-2 max-w-md text-sm font-normal leading-relaxed text-[#5a5a5a]">
+                    Your deliveries are outperforming{" "}
+                    <span className="font-semibold text-primary">
+                      85% of regional benchmarks
+                    </span>{" "}
+                    on carbon efficiency.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-3 text-xs lg:items-end">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary/50">
+                    Last 30 days · Auto-calculated
+                  </p>
+                  <button
+                    className="inline-flex items-center justify-center border border-accent/60 bg-white px-5 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-primary transition-colors hover:bg-accent hover:text-white"
+                    onClick={() => router.push("/impact")}
+                  >
+                    View impact report
+                  </button>
+                </div>
               </div>
             </div>
           </section>
@@ -253,46 +239,7 @@ export default function CustomerDashboardPage() {
         </div>
       </main>
 
-      <nav className="fixed bottom-0 left-0 right-0 z-50 flex h-14 items-center justify-around border-t border-accent/20 bg-primary px-2 text-white lg:hidden">
-        <button
-          className="flex flex-col items-center gap-0.5 text-accent"
-          onClick={() => scrollToId("dashboard-top")}
-        >
-          <span className="material-symbols-outlined text-lg">dashboard</span>
-          <span className="text-[6px] font-bold uppercase tracking-widest">
-            Dash
-          </span>
-        </button>
-        <button
-          className="flex flex-col items-center gap-0.5 opacity-60"
-          onClick={() => router.push("/book/type")}
-        >
-          <span className="material-symbols-outlined text-lg">
-            local_shipping
-          </span>
-          <span className="text-[6px] font-bold uppercase tracking-widest">
-            Book
-          </span>
-        </button>
-        <button
-          className="flex flex-col items-center gap-0.5 opacity-60"
-          onClick={() => scrollToId("impact-section")}
-        >
-          <span className="material-symbols-outlined text-lg">eco</span>
-          <span className="text-[6px] font-bold uppercase tracking-widest">
-            Impact
-          </span>
-        </button>
-        <button
-          className="flex flex-col items-center gap-0.5 opacity-60"
-          onClick={() => router.push("/account/settings")}
-        >
-          <span className="material-symbols-outlined text-lg">person</span>
-          <span className="text-[6px] font-bold uppercase tracking-widest">
-            Account
-          </span>
-        </button>
-      </nav>
+      <CustomerMobileNav />
     </div>
   );
 }

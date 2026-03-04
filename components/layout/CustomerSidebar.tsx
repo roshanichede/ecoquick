@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
+import { BrandLogo } from "./BrandLogo";
 
 export function CustomerSidebar() {
   const router = useRouter();
@@ -15,16 +16,7 @@ export function CustomerSidebar() {
   return (
     <aside className="fixed left-0 top-0 z-50 hidden h-screen w-64 flex-col border-r border-primary bg-white lg:flex">
       <div className="border-b border-primary p-6">
-        <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center bg-primary sharp-edge">
-            <span className="material-symbols-outlined text-xl text-white">
-              bolt
-            </span>
-          </div>
-          <span className="text-xl font-black uppercase tracking-tighter">
-            EcoQuick
-          </span>
-        </div>
+        <BrandLogo size="sm" />
       </div>
       <nav className="flex-1 space-y-1 p-4">
         <button

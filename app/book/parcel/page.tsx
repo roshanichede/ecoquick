@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { BookingStepper } from "../../../components/book/BookingStepper";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export default function BookParcelPage() {
   const router = useRouter();
@@ -26,14 +27,7 @@ export default function BookParcelPage() {
     <div className="flex min-h-screen flex-col bg-[#fafafa] text-slate-900">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
         <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center bg-primary text-white">
-              <span className="material-symbols-outlined text-accent">bolt</span>
-            </div>
-            <span className="text-2xl font-black tracking-tight text-primary">
-              EcoQuick
-            </span>
-          </div>
+          <BrandLogo size="sm" />
           <nav className="hidden items-center gap-8 md:flex">
             <Link
               href="/book/type"

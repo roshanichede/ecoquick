@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, FormEvent, useState } from "react";
-import { LandingHeader } from "../../components/layout/LandingHeader";
-import { LandingFooter } from "../../components/layout/LandingFooter";
+import { LandingHeader } from "@/components/layout/LandingHeader";
+import { LandingFooter } from "@/components/layout/LandingFooter";
 
 export default function SignupPage() {
   const router = useRouter();

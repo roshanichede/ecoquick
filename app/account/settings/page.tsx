@@ -1,8 +1,11 @@
-"use client";
+ "use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { CustomerMobileNav } from "../../../components/layout/CustomerMobileNav";
+import { BrandLogo } from "@/components/layout/BrandLogo";
+import { CustomerTopBar } from "@/components/layout/CustomerTopBar";
 
 export default function AccountSettingsPage() {
   const router = useRouter();
@@ -21,45 +24,11 @@ export default function AccountSettingsPage() {
   if (!customerName) return null;
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#fdfdfd] text-slate-900">
-      {/* Header */}
-      <header className="sticky top-0 z-50 flex items-center justify-between border-b border-primary bg-white px-6 py-3">
-        <div className="flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center bg-primary">
-            <span className="material-symbols-outlined text-base text-white">
-              bolt
-            </span>
-          </div>
-          <span className="text-lg font-black uppercase tracking-tighter text-primary">
-            EcoQuick
-          </span>
-        </div>
-        <div className="flex items-center gap-6">
-          <nav className="flex items-center gap-6 text-xs font-bold uppercase tracking-[0.22em]">
-            <Link
-              href="/dashboard"
-              className="text-slate-400 transition-colors hover:text-primary"
-            >
-              Deliveries
-            </Link>
-            <span className="text-primary">Settings</span>
-          </nav>
-          <div className="h-6 w-px bg-slate-200" />
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-bold">
-              {customerName
-                .split(" ")
-                .map((n) => n[0])
-                .join("")}
-            </span>
-            <div className="flex h-8 w-8 items-center justify-center border border-primary bg-slate-100">
-              <span className="material-symbols-outlined text-sm">person</span>
-            </div>
-          </div>
-        </div>
-      </header>
+    <div className="page-fade min-h-screen overflow-x-hidden bg-[#fdfdfd] text-slate-900">
+      <CustomerTopBar />
 
-      <div className="flex flex-1">
+      <main className="mx-auto flex min-h-screen max-w-6xl flex-col pb-16">
+        <div className="flex flex-1">
         {/* Sidebar */}
         <aside className="hidden w-64 border-r border-primary bg-white md:block">
           <nav className="space-y-1 p-4 text-xs font-bold uppercase tracking-tight">
@@ -98,7 +67,7 @@ export default function AccountSettingsPage() {
         </aside>
 
         {/* Main content */}
-        <main className="mx-auto flex w-full max-w-6xl flex-grow flex-col gap-8 p-6 md:p-8">
+        <section className="mx-auto flex w-full flex-grow flex-col gap-8 p-6 md:p-8">
           <div className="mb-4 flex items-end justify-between">
             <div>
               <h1 className="text-3xl font-black uppercase tracking-tighter text-primary">
@@ -359,21 +328,15 @@ export default function AccountSettingsPage() {
               </section>
             </div>
           </div>
-        </main>
-      </div>
+        </section>
+        </div>
+      </main>
 
       {/* Footer */}
-      <footer className="mt-12 border-t border-primary bg-white px-8 py-6">
+      <footer className="border-t border-primary bg-white px-8 py-6">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500 md:flex-row">
           <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center bg-primary">
-              <span className="material-symbols-outlined text-[10px] text-white">
-                speed
-              </span>
-            </div>
-            <span className="text-sm font-black uppercase tracking-tight text-primary">
-              EcoQuick
-            </span>
+            <BrandLogo size="sm" />
             <span className="ml-4 text-[10px] text-slate-400">
               Architectural Dashboard v1.0.4
             </span>
@@ -403,6 +366,7 @@ export default function AccountSettingsPage() {
           </p>
         </div>
       </footer>
+      <CustomerMobileNav />
     </div>
   );
 }

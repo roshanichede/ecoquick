@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { CustomerSidebar } from "../../components/layout/CustomerSidebar";
+import { CustomerSidebar } from "@/components/layout/CustomerSidebar";
+import { CustomerMobileNav } from "@/components/layout/CustomerMobileNav";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export default function ImpactReportPage() {
   const router = useRouter();
@@ -27,14 +29,7 @@ export default function ImpactReportPage() {
       <div className="flex min-h-screen flex-col bg-white text-slate-900 lg:ml-64">
       {/* Header */}
       <header className="sticky top-0 z-50 flex items-center justify-between border-b-2 border-primary bg-white px-8 py-4">
-        <div className="flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center bg-primary sharp-edge">
-            <span className="material-symbols-outlined text-white">eco</span>
-          </div>
-          <span className="text-2xl font-black uppercase tracking-tighter text-primary">
-            EcoQuick
-          </span>
-        </div>
+        <BrandLogo size="sm" />
         <nav className="hidden items-center gap-10 md:flex text-xs font-bold uppercase tracking-[0.22em]">
           <Link
             href="/order/track"
@@ -423,7 +418,8 @@ export default function ImpactReportPage() {
         </div>
       </footer>
     </div>
-    </div>
+    <CustomerMobileNav />
+  </div>
   );
 }
 

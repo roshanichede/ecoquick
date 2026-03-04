@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export default function OrderTrackPage() {
   const router = useRouter();
@@ -26,16 +27,7 @@ export default function OrderTrackPage() {
     <div className="flex h-screen flex-col overflow-hidden bg-white text-primary">
       {/* Header */}
       <header className="z-50 flex h-16 items-center justify-between border-b border-slate-200 bg-white px-6">
-        <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center bg-primary sharp-corners">
-            <span className="material-symbols-outlined text-sm text-accent">
-              speed
-            </span>
-          </div>
-          <span className="text-xl font-black uppercase tracking-tighter">
-            EcoQuick
-          </span>
-        </div>
+        <BrandLogo size="sm" />
         <div className="flex items-center gap-6">
           <div className="hidden items-center gap-6 text-xs font-bold uppercase tracking-[0.22em] text-slate-400 md:flex">
             <Link

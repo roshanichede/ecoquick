@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import type { ReactNode } from "react";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export default function DriverLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
@@ -32,17 +33,10 @@ export default function DriverLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex min-h-screen bg-gray-50 text-slate-900">
-      <aside className="fixed inset-y-0 flex w-64 flex-col border-r border-slate-200 bg-white">
+      <aside className="fixed inset-y-0 hidden w-64 flex-col border-r border-slate-200 bg-white lg:flex">
         <div className="p-8">
-          <div className="mb-12 flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center bg-primary">
-              <span className="material-symbols-outlined text-xl text-white">
-                electric_bolt
-              </span>
-            </div>
-            <span className="text-xl font-bold uppercase tracking-tight text-primary">
-              EcoQuick
-            </span>
+          <div className="mb-12">
+            <BrandLogo size="sm" labelSuffix="Driver" />
           </div>
           <nav className="space-y-10">
             <div>
@@ -148,7 +142,50 @@ export default function DriverLayout({ children }: { children: ReactNode }) {
         </div>
       </aside>
 
-      <main className="ml-64 flex-1">{children}</main>
+      <main className="flex-1 lg:ml-64">{children}</main>
+
+      <nav className="fixed bottom-0 left-0 right-0 z-40 flex h-14 items-center justify-around border-t border-primary/20 bg-white px-4 text-xs font-bold uppercase tracking-[0.16em] text-slate-700 lg:hidden">
+        <button
+          className={`flex flex-col items-center gap-0.5 ${
+            isActive("/driver") ? "text-primary" : "opacity-70"
+          }`}
+          onClick={() => router.push("/driver")}
+        >
+          <span className="material-symbols-outlined text-lg">dashboard</span>
+          <span>Home</span>
+        </button>
+        <button
+          className={`flex flex-col items-center gap-0.5 ${
+            isActive("/driver/jobs") ? "text-primary" : "opacity-70"
+          }`}
+          onClick={() => router.push("/driver/jobs")}
+        >
+          <span className="material-symbols-outlined text-lg">search</span>
+          <span>Jobs</span>
+        </button>
+        <button
+          className={`flex flex-col items-center gap-0.5 ${
+            isActive("/driver/track") ? "text-primary" : "opacity-70"
+          }`}
+          onClick={() => router.push("/driver/track")}
+        >
+          <span className="material-symbols-outlined text-lg">
+            local_shipping
+          </span>
+          <span>Active</span>
+        </button>
+        <button
+          className={`flex flex-col items-center gap-0.5 ${
+            isActive("/driver/earnings") ? "text-primary" : "opacity-70"
+          }`}
+          onClick={() => router.push("/driver/earnings")}
+        >
+          <span className="material-symbols-outlined text-lg">
+            account_balance_wallet
+          </span>
+          <span>Earn</span>
+        </button>
+      </nav>
     </div>
   );
 }

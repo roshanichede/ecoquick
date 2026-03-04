@@ -1,9 +1,10 @@
-"use client";
+ "use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { BookingStepper } from "../../../components/book/BookingStepper";
+import { CustomerTopBar } from "@/components/layout/CustomerTopBar";
 
 export default function BookTypePage() {
   const router = useRouter();
@@ -23,70 +24,10 @@ export default function BookTypePage() {
     return null;
   }
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
-      <header className="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4 md:px-8">
-        <div className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center bg-primary">
-            <span className="material-symbols-outlined text-sm text-accent">
-              speed
-            </span>
-          </div>
-          <span className="text-xl font-extrabold uppercase tracking-tight text-primary">
-            EcoQuick
-          </span>
-        </div>
-        <nav className="hidden items-center gap-8 lg:flex">
-          <Link
-            href="/book/type"
-            className="text-sm font-semibold text-primary"
-          >
-            Request delivery
-          </Link>
-          <Link
-            href="/about"
-            className="text-sm font-medium text-slate-600 transition-colors hover:text-primary"
-          >
-            About
-          </Link>
-          <Link
-            href="/business"
-            className="text-sm font-medium text-slate-600 transition-colors hover:text-primary"
-          >
-            Pricing
-          </Link>
-          <Link
-            href="/business"
-            className="text-sm font-medium text-slate-600 transition-colors hover:text-primary"
-          >
-            Business
-          </Link>
-          <Link
-            href="/help"
-            className="text-sm font-medium text-slate-600 transition-colors hover:text-primary"
-          >
-            Help
-          </Link>
-        </nav>
-        <div className="flex items-center gap-4">
-          <Link
-            href="/dashboard"
-            className="border-2 border-primary px-4 py-2 text-sm font-bold uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary hover:text-white"
-          >
-            Dashboard
-          </Link>
-          <Link
-            href="/logout"
-            className="flex items-center gap-1 text-sm font-medium text-slate-500 transition-colors hover:text-primary"
-          >
-            <span className="material-symbols-outlined text-base">
-              logout
-            </span>
-            Sign out
-          </Link>
-        </div>
-      </header>
+    <div className="page-fade flex min-h-screen flex-col bg-slate-50 text-slate-900">
+      <CustomerTopBar />
 
-      <main className="flex flex-1 flex-col items-center py-10 px-4 md:px-6">
+      <main className="flex flex-1 flex-col items-center py-8 px-4 md:px-6">
         <div className="w-full max-w-5xl bg-white shadow-[0_20px_50px_-12px_rgba(62,0,116,0.15)]">
           {/* Stepper */}
           <div className="border-b border-slate-100 bg-white px-6 pb-12 pt-10 md:px-8">

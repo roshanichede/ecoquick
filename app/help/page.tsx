@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { LandingHeader } from "../../components/layout/LandingHeader";
-import { LandingFooter } from "../../components/layout/LandingFooter";
+import { LandingHeader } from "@/components/layout/LandingHeader";
+import { LandingFooter } from "@/components/layout/LandingFooter";
 
 export default function HelpPage() {
   return (

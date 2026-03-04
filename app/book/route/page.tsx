@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { BookingStepper } from "../../../components/book/BookingStepper";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export default function BookRoutePage() {
   const router = useRouter();
@@ -26,11 +27,7 @@ export default function BookRoutePage() {
     <div className="flex min-h-screen flex-col bg-white text-primary">
       <nav className="border-b border-primary/10">
         <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-black uppercase tracking-tighter">
-              EcoQuick
-            </span>
-          </div>
+          <BrandLogo size="sm" />
           <div className="hidden items-center gap-10 text-[10px] font-bold uppercase tracking-[0.2em] md:flex">
             <Link href="/dashboard" className="hover:opacity-60">
               Dashboard

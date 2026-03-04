@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export default function OrderConfirmedPage() {
   const router = useRouter();
@@ -26,16 +27,7 @@ export default function OrderConfirmedPage() {
     <div className="flex min-h-screen flex-col bg-white text-slate-900">
       {/* Header */}
       <header className="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4 md:px-8">
-        <div className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center bg-primary">
-            <span className="material-symbols-outlined text-sm text-accent">
-              bolt
-            </span>
-          </div>
-          <span className="text-xl font-extrabold uppercase tracking-tight text-primary">
-            EcoQuick
-          </span>
-        </div>
+        <BrandLogo size="sm" />
         <nav className="hidden items-center gap-8 md:flex">
           <Link
             href="/dashboard"

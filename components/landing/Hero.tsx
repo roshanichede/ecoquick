@@ -1,6 +1,7 @@
-"use client";
+ "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export function HeroSection() {
@@ -30,8 +31,18 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="hero-fade flex flex-col items-center text-center">
-      <div className="hero-chip-fade mt-6 flex flex-wrap items-center justify-center gap-3 text-[10px] font-semibold uppercase tracking-[0.25em] text-zinc-400">
+    <section className="hero-fade relative flex flex-col items-center text-center">
+      <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
+        <Image
+          src="/"
+          alt=""
+          width={800}
+          height={500}
+          className="max-w-[82vw] opacity-10 sm:opacity-20 md:opacity-25 lg:opacity-30"
+          priority
+        />
+      </div>
+      <div className="hero-chip-fade mt-4 sm:mt-6 flex flex-wrap items-center justify-center gap-3 text-[10px] font-semibold uppercase tracking-[0.25em] text-zinc-400">
         <span className="inline-flex items-center gap-2">
           <span className="h-1 w-1 rounded-full bg-accent" />
           Live tracking
@@ -48,7 +59,7 @@ export function HeroSection() {
         </span>
       </div>
 
-      <h1 className="mt-10 text-balance text-5xl uppercase leading-[0.92] tracking-tight text-[#3f0075] sm:text-6xl md:text-7xl lg:text-8xl">
+      <h1 className="mt-6 sm:mt-8 md:mt-10 text-balance text-5xl uppercase leading-[0.92] tracking-tight text-[#3f0075] sm:text-6xl md:text-7xl lg:text-8xl">
         <span className="block">Why wait?</span>
         <span className="block">Get your parcels</span>
         <span className="block font-bold text-[#cdbfe0]">
@@ -60,13 +71,13 @@ export function HeroSection() {
         </span>
       </h1>
 
-      <p className="mt-5 max-w-2xl text-xs font-semibold uppercase tracking-[0.22em] text-zinc-400">
+      <p className="mt-4 sm:mt-5 max-w-2xl text-xs font-semibold uppercase tracking-[0.22em] text-zinc-400">
         Hyperlocal, fast, and secure deliveries for all your parcels.
       </p>
 
       <div
         id="get-started"
-        className="hero-buttons-fade mt-10 flex flex-wrap items-center justify-center gap-4"
+        className="hero-buttons-fade mt-6 sm:mt-8 md:mt-10 flex flex-wrap items-center justify-center gap-4"
       >
         <Link
           href="/signup"

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export default function DriverEarningsPage() {
   const router = useRouter();
@@ -19,15 +20,8 @@ export default function DriverEarningsPage() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-primary">
       <header className="sticky top-0 z-50 flex items-center justify-between border-b border-primary/10 bg-white px-8 py-4">
-        <div className="flex items-center gap-12">
-          <div className="flex items-center gap-2 text-primary">
-            <span className="material-symbols-outlined text-3xl font-bold">
-              electric_bolt
-            </span>
-            <h2 className="text-xl font-black uppercase tracking-tighter">
-              EcoQuick
-            </h2>
-          </div>
+        <div className="flex items-center gap-4 sm:gap-6">
+          <BrandLogo size="sm" labelSuffix="Driver" />
           <nav className="hidden items-center gap-8 md:flex">
             <button
               className="text-xs font-bold uppercase tracking-widest text-primary/60 transition-colors hover:text-primary"

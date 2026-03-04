@@ -3,8 +3,8 @@
 import { useState, FormEvent, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { LandingHeader } from "../../components/layout/LandingHeader";
-import { LandingFooter } from "../../components/layout/LandingFooter";
+import { LandingHeader } from "@/components/layout/LandingHeader";
+import { LandingFooter } from "@/components/layout/LandingFooter";
 
 export default function LoginPage() {
   const router = useRouter();

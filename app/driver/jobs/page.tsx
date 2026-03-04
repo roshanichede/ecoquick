@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export default function DriverJobsPage() {
   const router = useRouter();
@@ -20,15 +21,8 @@ export default function DriverJobsPage() {
     <div className="min-h-screen bg-white text-primary">
       <div className="relative flex min-h-screen flex-col">
         <header className="sticky top-0 z-50 flex items-center justify-between border-b border-gray-100 bg-white px-6 py-6 md:px-12">
-          <div className="flex items-center gap-12">
-            <div className="flex items-center gap-3 text-primary">
-              <span className="material-symbols-outlined text-3xl font-bold">
-                local_shipping
-              </span>
-              <h2 className="text-xl font-black uppercase tracking-tighter">
-                EcoQuick
-              </h2>
-            </div>
+          <div className="flex items-center gap-4 sm:gap-6">
+            <BrandLogo size="sm" labelSuffix="Driver" />
             <nav className="hidden items-center gap-10 lg:flex">
               <span className="border-b-2 border-primary pb-1 text-xs font-black uppercase tracking-[0.2em] text-primary">
                 Available Jobs

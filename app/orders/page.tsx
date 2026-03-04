@@ -1,9 +1,10 @@
-"use client";
+ "use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { CustomerSidebar } from "../../components/layout/CustomerSidebar";
+import { CustomerTopBar } from "@/components/layout/CustomerTopBar";
+import { CustomerMobileNav } from "@/components/layout/CustomerMobileNav";
 
 export default function OrderHistoryPage() {
   const router = useRouter();
@@ -68,62 +69,10 @@ export default function OrderHistoryPage() {
   ];
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
-      <CustomerSidebar />
-      <div className="flex min-h-screen flex-col bg-[radial-gradient(circle_at_0_0,rgba(62,0,116,0.08),transparent_35%),radial-gradient(circle_at_20px_20px,rgba(62,0,116,0.04),transparent_35%)] text-slate-900 lg:ml-64">
-      {/* Header */}
-      <header className="sticky top-0 z-50 flex items-center justify-between border-b-4 border-primary bg-white px-8 py-4">
-        <div className="flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center bg-primary">
-            <span className="material-symbols-outlined text-white">speed</span>
-          </div>
-          <span className="text-2xl font-black uppercase tracking-tighter text-primary">
-            EcoQuick
-          </span>
-        </div>
-        <nav className="hidden items-center gap-10 lg:flex text-xs font-black uppercase tracking-[0.22em]">
-          <Link
-            href="/dashboard"
-            className="transition-colors hover:text-primary"
-          >
-            Dashboard
-          </Link>
-          <span className="border-b-2 border-primary pb-1 text-primary">
-            Order History
-          </span>
-          <Link
-            href="/business"
-            className="transition-colors hover:text-primary"
-          >
-            Invoices
-          </Link>
-          <Link
-            href="/impact"
-            className="transition-colors hover:text-primary"
-          >
-            Sustainability Report
-          </Link>
-        </nav>
-        <div className="flex items-center gap-4">
-          <div className="mr-4 hidden text-right sm:block">
-            <p className="text-[10px] font-bold uppercase tracking-tight text-slate-400">
-              Verified Account
-            </p>
-            <p className="text-sm font-black uppercase text-primary">
-              {customerName}
-            </p>
-          </div>
-          <button
-            className="flex h-10 w-10 items-center justify-center bg-slate-100 transition-colors hover:bg-primary hover:text-white"
-            onClick={() => router.push("/account/settings")}
-          >
-            <span className="material-symbols-outlined">person</span>
-          </button>
-        </div>
-      </header>
+    <div className="page-fade min-h-screen overflow-x-hidden bg-white text-slate-900">
+      <CustomerTopBar />
 
-      {/* Main */}
-      <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col px-4 py-10 sm:px-8">
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-5 py-8 sm:px-6">
         <div className="mb-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <h1 className="mb-2 text-4xl font-black uppercase tracking-tighter text-primary sm:text-5xl md:text-6xl">
@@ -162,7 +111,7 @@ export default function OrderHistoryPage() {
         </div>
 
         {/* Desktop table */}
-        <div className="hidden border-2 border-primary bg-white shadow-[8px_8px_0px_0px_#3e0074] md:block">
+        <div className="hidden border border-primary bg-white shadow-[6px_6px_0px_0px_#3e0074] md:block">
           <div className="grid grid-cols-12 bg-primary px-6 py-3 text-[10px] font-black uppercase tracking-[0.22em] text-white">
             <div className="col-span-2">Order ID</div>
             <div className="col-span-2">Date &amp; Time</div>
@@ -283,149 +232,10 @@ export default function OrderHistoryPage() {
           ))}
         </div>
       </main>
-
-      {/* Footer */}
-      <footer className="mt-12 bg-slate-900 px-8 py-12 text-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-4">
-          <div>
-            <div className="mb-6 flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center bg-white">
-                <span className="material-symbols-outlined text-sm text-primary">
-                  speed
-                </span>
-              </div>
-            </div>
-            <p className="mb-6 text-xs font-medium leading-relaxed text-slate-400">
-              Hyper-efficient, architectural delivery infrastructure for the
-              modern eco-conscious business ecosystem.
-            </p>
-            <div className="border-l-2 border-accent pl-4">
-              <p className="text-[10px] font-black uppercase tracking-[0.22em] text-accent">
-                Status: Active
-              </p>
-              <p className="text-[10px] font-medium text-slate-400">
-                Node Cluster: London-East
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="mb-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
-              Navigation
-            </h4>
-            <ul className="space-y-4 text-xs font-bold uppercase tracking-[0.22em]">
-              <li>
-                <Link
-                  href="/dashboard"
-                  className="transition-colors hover:text-accent"
-                >
-                  Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/orders"
-                  className="transition-colors hover:text-accent"
-                >
-                  Order History
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/business"
-                  className="transition-colors hover:text-accent"
-                >
-                  Invoices
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/account/settings"
-                  className="transition-colors hover:text-accent"
-                >
-                  Settings
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="mb-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
-              System
-            </h4>
-            <ul className="space-y-4 text-xs font-bold uppercase tracking-[0.22em]">
-              <li>
-                <Link
-                  href="/help"
-                  className="transition-colors hover:text-accent"
-                >
-                  API Docs
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/help"
-                  className="transition-colors hover:text-accent"
-                >
-                  Security
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/help"
-                  className="transition-colors hover:text-accent"
-                >
-                  Uptime Status
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/help"
-                  className="transition-colors hover:text-accent"
-                >
-                  Legal
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="bg-primary p-6">
-            <h4 className="mb-4 text-[10px] font-black uppercase tracking-[0.2em]">
-              Newsletter Node
-            </h4>
-            <p className="mb-4 text-[10px] font-medium leading-relaxed text-slate-300">
-              Join 10k+ businesses optimizing their delivery supply chain.
-            </p>
-            <div className="flex">
-              <input
-                type="email"
-                placeholder="EMAIL ADDRESS"
-                className="w-full border-none bg-white/10 px-3 py-3 text-[10px] font-black placeholder:text-slate-300 focus:bg-white/20 focus:outline-none"
-              />
-              <button className="bg-accent px-4 py-3">
-                <span className="material-symbols-outlined text-sm">send</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="mx-auto mt-12 flex max-w-7xl flex-col items-center justify-between gap-6 border-t border-white/10 pt-6 text-[9px] font-bold uppercase tracking-[0.3em] text-white/60 md:flex-row">
-          <p>
-            © 2026 ECOQUICK ARCHITECTURAL DELIVERY. ALL RIGHTS RESERVED.
-          </p>
-          <div className="flex gap-2">
-            <div className="h-2 w-2 bg-emerald-500" />
-            <div className="h-2 w-2 bg-white/20" />
-            <div className="h-2 w-2 bg-white/20" />
-          </div>
-        </div>
-        <div className="fixed bottom-8 left-8 z-50">
-          <div className="flex items-center gap-4 border-2 border-primary bg-white px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-primary shadow-[4px_4px_0px_0px_#3e0074]">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
-            Live Network: Optimized
-          </div>
-        </div>
+      <footer className="mt-10 border-t border-primary/10 pt-4 text-center text-[10px] font-bold uppercase tracking-[0.22em] text-slate-400">
+        © 2026 EcoQuick. All rights reserved.
       </footer>
-      </div>
+      <CustomerMobileNav />
     </div>
   );
 }
