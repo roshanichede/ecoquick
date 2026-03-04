@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function LandingHeader() {
   return (
-    <header className="flex items-center justify-between border-b border-zinc-200 py-5">
+    <header className="flex flex-col gap-4 border-b border-zinc-200 py-4 md:flex-row md:items-center md:justify-between md:py-5">
       <Link href="/" className="flex items-center gap-3">
         <Image
           src="/ecoquick-logo.png"
@@ -18,7 +18,7 @@ export function LandingHeader() {
         </span>
       </Link>
 
-      <nav className="flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-500 md:gap-7 md:text-xs">
+      <nav className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-500 md:gap-x-7 md:text-xs">
         <Link href="/" className="transition hover:text-zinc-900">
           Dashboard
         </Link>
