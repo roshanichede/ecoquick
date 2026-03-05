@@ -32,16 +32,6 @@ export function HeroSection() {
 
   return (
     <section className="hero-fade relative flex flex-col items-center text-center">
-      <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
-        <Image
-          src="/"
-          alt=""
-          width={800}
-          height={500}
-          className="max-w-[82vw] opacity-10 sm:opacity-20 md:opacity-25 lg:opacity-30"
-          priority
-        />
-      </div>
       <div className="hero-chip-fade mt-4 sm:mt-6 flex flex-wrap items-center justify-center gap-3 text-[10px] font-semibold uppercase tracking-[0.25em] text-zinc-400">
         <span className="inline-flex items-center gap-2">
           <span className="h-1 w-1 rounded-full bg-accent" />

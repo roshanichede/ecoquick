@@ -12,8 +12,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-inter);
+  --font-sans: var(--font-raleway);
+  --font-display: var(--font-raleway);
 
   /* Brand colors */
   --color-brand-primary: #3e0075;
@@ -50,7 +50,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont,
+  font-family: var(--font-raleway), system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
   overflow-x: hidden;
 }
@@ -260,6 +260,34 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.dashboard-grid-bg {
+  background-color: #ffffff;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(21, 16, 24, 0.08) 1px, transparent 0),
+    radial-gradient(circle at 3px 4px, rgba(62, 0, 117, 0.06) 1px, transparent 0);
+  background-size: 18px 18px, 28px 28px;
+}
+
+.btn-pill-primary {
+  border-radius: 9999px;
+  border: 1px solid #3e0074;
+  background-color: #ffffff;
+  color: #3e0074;
+  box-shadow: 0 6px 14px rgba(62, 0, 116, 0.12);
+  transition:
+    background-color 160ms ease-out,
+    color 160ms ease-out,
+    box-shadow 160ms ease-out,
+    transform 160ms ease-out;
+}
+
+.btn-pill-primary:hover {
+  background-color: #3e0074;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(62, 0, 116, 0.18);
+  transform: translateY(-1px);
 }
 
 

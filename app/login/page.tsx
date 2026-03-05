@@ -82,7 +82,7 @@ export default function LoginPage() {
 
       <main className="flex flex-1 items-center justify-center p-6 md:p-12">
         <div className="flex w-full max-w-md flex-col items-center">
-          <h1 className="mb-4 text-center text-4xl font-black uppercase leading-[0.9] tracking-[-0.06em] text-[#3e0074] sm:text-5xl md:text-6xl">
+          <h1 className="mb-4 text-center text-4xl uppercase leading-[0.9] tracking-[-0.06em] text-[#3e0074] sm:text-5xl md:text-6xl">
             Welcome back
           </h1>
 

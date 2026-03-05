@@ -7,7 +7,7 @@ export default function AboutPage() {
     <div className="landing-shell min-h-screen bg-white text-[#3e0074] antialiased">
       <div className="landing-grid-layer" />
 
-      <div className="landing-content mx-auto w-full max-w-6xl px-6 md:px-10">
+      <div className="landing-content mx-auto w-full max-w-6xl px-6 lg:px-8">
         <LandingHeader />
       </div>
 
@@ -254,7 +254,7 @@ export default function AboutPage() {
         </section>
       </main>
 
-      <div className="landing-content mx-auto w-full max-w-6xl px-6 md:px-10">
+      <div className="landing-content mx-auto w-full max-w-6xl px-6 lg:px-8">
         <LandingFooter />
       </div>
     </div>

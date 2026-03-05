@@ -5,7 +5,7 @@ This file describes the visual system for EcoQuick so new pages can be implement
 ### 1. Foundations
 
 - **Font family**
-  - Primary: `Inter` (already wired via `app/layout.tsx` and `globals.css`).
+  - Primary: `Raleway` (wired via `app/layout.tsx` and `globals.css`).
   - Usage:
     - `font-sans` / default body copy.
     - `font-black` or `font-extrabold` for headings and key labels.
@@ -119,7 +119,7 @@ This file describes the visual system for EcoQuick so new pages can be implement
 
 When building a new page:
 
-- Use **Inter** for all text and follow the heading/label styles above.
+- Use **Raleway** for all text and follow the heading/label styles above.
 - Pick button variants based on importance:
   - Primary CTA: `bg-primary`.
   - Secondary: bordered or `bg-accent` when calling out a special action.

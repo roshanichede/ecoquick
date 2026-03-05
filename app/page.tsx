@@ -14,7 +14,7 @@ export default function Home() {
         className="landing-grid-layer"
       />
 
-      <div className="landing-content mx-auto max-w-6xl px-5 sm:px-6">
+      <div className="landing-content mx-auto max-w-6xl px-6 lg:px-8">
         <LandingHeader />
 
         <main id="top" className="py-10 sm:py-16 lg:py-20">

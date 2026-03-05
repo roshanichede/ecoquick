@@ -34,7 +34,7 @@ export default function CustomerDashboardPage() {
   }
 
   return (
-    <div className="page-fade min-h-screen overflow-x-hidden bg-white text-primary">
+    <div className="page-fade min-h-screen overflow-x-hidden dashboard-grid-bg text-primary">
       <CustomerTopBar />
 
       <main className="mx-auto min-h-screen max-w-6xl pb-16 lg:pb-20">
@@ -45,7 +45,7 @@ export default function CustomerDashboardPage() {
             </p>
             <h1 className="mt-3 text-2xl font-semibold tracking-tight text-[#151018] sm:text-3xl">
               Welcome back,{" "}
-              <span className="accent-underline">{customerName}</span>
+              <span>{customerName}</span>
             </h1>
             <p className="mt-2 text-sm font-normal text-[#5a5a5a]">
               Create a new EcoQuick delivery or review your recent activity.
@@ -53,7 +53,7 @@ export default function CustomerDashboardPage() {
 
             <div className="mt-6 inline-flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <button
-                className="inline-flex items-center justify-center gap-2 border border-primary bg-primary px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-sm transition-colors hover:bg-[#2f005a]"
+                className="inline-flex items-center justify-center gap-2 border border-primary px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary shadow-sm transition-colors hover:bg-zinc-100"
                 onClick={() => router.push("/book/type")}
               >
                 <span className="material-symbols-outlined text-sm text-accent">
@@ -62,10 +62,26 @@ export default function CustomerDashboardPage() {
                 New delivery
               </button>
               <button
-                className="inline-flex items-center justify-center border border-zinc-200 bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary transition-colors hover:bg-zinc-50"
+                className="inline-flex items-center justify-center gap-2 border border-zinc-200 bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary transition-colors hover:bg-zinc-100"
                 onClick={() => router.push("/orders")}
               >
-                View orders
+                <span className="text-accent">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="M9 12h6" />
+                    <path d="m13 9 3 3-3 3" />
+                  </svg>
+                </span>
+                Track order
               </button>
             </div>
           </section>
@@ -82,7 +98,7 @@ export default function CustomerDashboardPage() {
                 across the city — optimized for time and carbon impact.
               </p>
               <button
-                className="inline-flex items-center justify-center border border-accent/40 bg-primary px-10 py-3.5 text-xs font-semibold uppercase tracking-[0.28em] text-white shadow-[4px_4px_0px_#ff9b16] transition-transform transition-colors hover:-translate-y-0.5 hover:bg-black"
+                className="btn-pill-primary inline-flex items-center justify-center px-10 py-3 text-[11px] font-semibold uppercase tracking-[0.24em]"
                 onClick={() => router.push("/book/type")}
               >
                 Book now

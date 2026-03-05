@@ -40,10 +40,8 @@ export default function SignupPage() {
 
       <main className="flex min-h-screen flex-col items-center px-4 py-12 md:py-24">
         <div className="w-full max-w-xl" id="signup-form">
-          <h1 className="mb-12 text-center text-5xl font-black uppercase leading-[0.85] tracking-[-0.06em] md:text-left md:text-[90px]">
-            Join
-            <br />
-            EcoQuick
+          <h1 className="mb-12 text-center text-5xl uppercase leading-[0.85] tracking-[-0.06em] md:text-left md:text-[90px]">
+            Join EcoQuick
           </h1>
 
           <div className="space-y-12">

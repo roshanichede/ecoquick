@@ -25,14 +25,28 @@ export default function HelpPage() {
             <p className="mb-10 text-lg font-medium text-slate-500">
               How can we help you today?
             </p>
-            <div className="relative w-full shadow-xl">
+            <div className="relative w-full overflow-hidden rounded-xl border border-gray-100 bg-white shadow-xl">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                <span className="text-slate-400">🔍</span>
+                <span className="text-accent">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="11" cy="11" r="6" />
+                    <line x1="16" y1="16" x2="21" y2="21" />
+                  </svg>
+                </span>
               </div>
               <input
                 type="text"
                 placeholder="Search for articles, topics, or keywords..."
-                className="block w-full border-2 border-gray-100 bg-white py-4 pl-12 pr-24 text-lg text-slate-900 placeholder:text-slate-400 transition-all focus:border-[#3e0074] focus:outline-none focus:ring-1 focus:ring-[#3e0074]"
+                className="block w-full border-0 bg-white py-4 pl-12 pr-24 text-lg text-slate-900 placeholder:text-slate-400 transition-all focus:border-0 focus:outline-none focus:ring-1 focus:ring-[#3e0074]"
               />
               <button className="absolute inset-y-0 right-0 bg-[#3e0074] px-6 text-sm font-bold text-white transition-colors hover:bg-[#2f005a]">
                 Search
@@ -49,27 +63,67 @@ export default function HelpPage() {
                 title: "Live chat",
                 body: "Chat with our support team instantly for quick resolutions.",
                 cta: "Start chat",
-                icon: "💬",
+                icon: (
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M4 5h16v9H7l-3 3z" />
+                  </svg>
+                ),
               },
               {
                 title: "Call support",
                 body: "Speak directly with a representative. Wait times under 2 mins.",
                 cta: "Call now",
-                icon: "☎️",
+                icon: (
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 4a2 2 0 0 1 2.2-2l2.3.4a2 2 0 0 1 1.5 1.5l.4 2.3a2 2 0 0 1-.6 1.9l-1.2 1.2a12 12 0 0 0 5.4 5.4l1.2-1.2a2 2 0 0 1 1.9-.6l2.3.4a2 2 0 0 1 1.5 1.5l.4 2.3A2 2 0 0 1 20 22h-1C11.7 21.6 4.4 14.3 4 6V5Z" />
+                  </svg>
+                ),
               },
               {
                 title: "Email support",
                 body: "Send us a detailed inquiry and we’ll respond within 24 hours.",
                 cta: "Send email",
-                icon: "✉️",
+                icon: (
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="M3 7l9 6 9-6" />
+                  </svg>
+                ),
               },
             ].map((card) => (
               <div
                 key={card.title}
                 className="group flex cursor-pointer flex-col items-start gap-4 border border-[#3e0074]/10 bg-[#3e0074]/[0.03] p-8 transition-all hover:border-[#3e0074]/30 hover:bg-[#3e0074]/[0.05]"
               >
-                <div className="flex h-12 w-12 items-center justify-center border border-gray-100 bg-white text-xl text-[#3e0074] shadow-sm">
-                  <span>{card.icon}</span>
+                <div className="flex h-12 w-12 items-center justify-center border border-gray-100 bg-white text-xl text-accent shadow-sm">
+                  {card.icon}
                 </div>
                 <div>
                   <h3 className="mb-1 font-display text-xl font-bold text-slate-900">
@@ -98,7 +152,23 @@ export default function HelpPage() {
             {[
               {
                 title: "Booking",
-                icon: "📅",
+                icon: (
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect x="3" y="4" width="18" height="18" rx="2" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                ),
                 items: [
                   "How to schedule a pickup",
                   "Modifying a booking",
@@ -107,7 +177,23 @@ export default function HelpPage() {
               },
               {
                 title: "Tracking",
-                icon: "🚚",
+                icon: (
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect x="3" y="7" width="10" height="10" rx="2" />
+                    <path d="M13 9h3l3 3v5h-6Z" />
+                    <circle cx="7.5" cy="18" r="1.5" />
+                    <circle cx="17.5" cy="18" r="1.5" />
+                  </svg>
+                ),
                 items: [
                   "Where is my package?",
                   "Tracking status explained",
@@ -116,7 +202,22 @@ export default function HelpPage() {
               },
               {
                 title: "Payments",
-                icon: "💳",
+                icon: (
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <line x1="3" y1="9" x2="21" y2="9" />
+                    <line x1="8" y1="15" x2="12" y2="15" />
+                  </svg>
+                ),
                 items: [
                   "Payment methods",
                   "Request a refund",
@@ -125,7 +226,21 @@ export default function HelpPage() {
               },
               {
                 title: "Safety",
-                icon: "🛡️",
+                icon: (
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M12 3 5 5v6c0 4.3 2.7 7.4 7 9 4.3-1.6 7-4.7 7-9V5Z" />
+                    <path d="m9.5 12.5 1.5 1.5 3.5-3.5" />
+                  </svg>
+                ),
                 items: [
                   "Package insurance",
                   "Driver verification",
@@ -134,7 +249,22 @@ export default function HelpPage() {
               },
               {
                 title: "Areas",
-                icon: "🗺️",
+                icon: (
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M3 6 9 4l6 2 6-2v14l-6 2-6-2-6 2Z" />
+                    <path d="M9 4v14" />
+                    <path d="M15 6v14" />
+                  </svg>
+                ),
                 items: [
                   "Service coverage map",
                   "International shipping",
@@ -143,7 +273,21 @@ export default function HelpPage() {
               },
               {
                 title: "Account",
-                icon: "👤",
+                icon: (
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="12" cy="8" r="3.5" />
+                    <path d="M5 20c1.5-3 3.8-4.5 7-4.5s5.5 1.5 7 4.5" />
+                  </svg>
+                ),
                 items: [
                   "Reset password",
                   "Update profile",
@@ -156,9 +300,7 @@ export default function HelpPage() {
                 className="bg-white p-8 transition-colors hover:bg-gray-50"
               >
                 <div className="mb-6 flex items-center gap-3">
-                  <span className="text-3xl text-[#3e0074]">
-                    {topic.icon}
-                  </span>
+                  <span className="text-3xl text-accent">{topic.icon}</span>
                   <h3 className="font-display text-lg font-bold text-slate-900">
                     {topic.title}
                   </h3>
@@ -238,7 +380,20 @@ export default function HelpPage() {
               </p>
             </div>
             <div className="flex items-center gap-4 border border-white/10 bg-white/10 px-8 py-4 backdrop-blur-sm">
-              <span className="text-3xl text-[#ff9b16]">📞</span>
+              <span className="text-accent">
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 4a2 2 0 0 1 2.2-2l2.3.4a2 2 0 0 1 1.5 1.5l.4 2.3a2 2 0 0 1-.6 1.9l-1.2 1.2a12 12 0 0 0 5.4 5.4l1.2-1.2a2 2 0 0 1 1.9-.6l2.3.4a2 2 0 0 1 1.5 1.5l.4 2.3A2 2 0 0 1 20 22h-1C11.7 21.6 4.4 14.3 4 6V5Z" />
+                </svg>
+              </span>
               <div className="flex flex-col">
                 <span className="text-xs font-bold uppercase tracking-[0.2em] opacity-70">
                   Emergency line
