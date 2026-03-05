@@ -34,7 +34,7 @@ export function WorkflowSection() {
             key={step.k}
             className="space-y-4 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
           >
-            <div className="overflow-hidden border border-zinc-200 bg-white">
+            <div className="overflow-hidden border border-zinc-300 bg-white">
               <div className="relative aspect-[4/3] bg-white">
                 <Image
                   src={step.image}

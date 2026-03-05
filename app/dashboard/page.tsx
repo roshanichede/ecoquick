@@ -53,33 +53,20 @@ export default function CustomerDashboardPage() {
 
             <div className="mt-6 inline-flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <button
-                className="inline-flex items-center justify-center gap-2 border border-primary px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary shadow-sm transition-colors hover:bg-zinc-100"
+                className="inline-flex items-center justify-center gap-2 border border-primary bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary shadow-sm transition-colors hover:bg-zinc-100"
                 onClick={() => router.push("/book/type")}
               >
-                <span className="material-symbols-outlined text-sm text-accent">
-                  add_circle
+                <span className="material-symbols-outlined text-base text-accent">
+                  add
                 </span>
                 New delivery
               </button>
               <button
-                className="inline-flex items-center justify-center gap-2 border border-zinc-200 bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary transition-colors hover:bg-zinc-100"
+                className="inline-flex items-center justify-center gap-2 border border-primary bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary shadow-sm transition-colors hover:bg-zinc-100"
                 onClick={() => router.push("/orders")}
               >
-                <span className="text-accent">
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 24 24"
-                    className="h-4 w-4"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <rect x="3" y="5" width="18" height="14" rx="2" />
-                    <path d="M9 12h6" />
-                    <path d="m13 9 3 3-3 3" />
-                  </svg>
+                <span className="material-symbols-outlined text-base text-accent">
+                  arrow_forward
                 </span>
                 Track order
               </button>

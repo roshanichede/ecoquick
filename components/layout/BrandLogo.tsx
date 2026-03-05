@@ -23,13 +23,13 @@ export function BrandLogo({
         alt="EcoQuick logo"
         width={iconSize}
         height={iconSize}
-        className="rounded-xl object-contain"
+        className="object-contain"
         priority
       />
       {withWordmark && (
         <span
-          className={`font-extrabold uppercase tracking-[0.22em] text-zinc-950 ${
-            size === "sm" ? "text-[10px] sm:text-xs" : "text-xs sm:text-sm"
+          className={`font-extrabold uppercase tracking-tight text-zinc-950 ${
+            size === "sm" ? "text-[11px] sm:text-xs" : "text-sm sm:text-base"
           }`}
         >
           ECOQUICK{labelSuffix ? ` ${labelSuffix}` : ""}

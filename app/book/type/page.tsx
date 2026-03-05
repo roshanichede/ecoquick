@@ -6,6 +6,31 @@ import { useRouter } from "next/navigation";
 import { BookingStepper } from "../../../components/book/BookingStepper";
 import { CustomerTopBar } from "@/components/layout/CustomerTopBar";
 
+const BoltIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="shrink-0" aria-hidden>
+    <path d="M13 2L4 14h7l-2 8 9-12h-7l2-8z" />
+  </svg>
+);
+
+const CalendarIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="shrink-0" aria-hidden>
+    <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" />
+    <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
+
+const ArrowWestIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="shrink-0" aria-hidden>
+    <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const ArrowEastIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="shrink-0" aria-hidden>
+    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 export default function BookTypePage() {
   const router = useRouter();
   const [allowed, setAllowed] = useState(false);
@@ -34,7 +59,7 @@ export default function BookTypePage() {
             <BookingStepper currentStep={1} />
 
             <div className="mt-10 text-center">
-              <h1 className="text-3xl font-black uppercase tracking-tight text-primary sm:text-4xl">
+              <h1 className="text-3xl uppercase tracking-tight text-primary sm:text-4xl">
                 Delivery Type
               </h1>
               <p className="mx-auto mt-3 max-w-lg text-sm font-medium text-slate-500">
@@ -52,10 +77,8 @@ export default function BookTypePage() {
                 className="group flex h-full flex-col border-2 border-slate-100 bg-slate-50 p-8 text-left transition-all hover:border-slate-300"
               >
                 <div className="mb-6 flex w-full justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center bg-primary text-white">
-                    <span className="material-symbols-outlined text-2xl">
-                      bolt
-                    </span>
+                  <div className="flex h-12 w-12 items-center justify-center rounded border-2 border-accent/40 bg-white text-accent transition-colors group-hover:bg-accent group-hover:text-white">
+                    <BoltIcon />
                   </div>
                 </div>
                 <h3 className="mb-3 text-xl font-black uppercase tracking-tight text-primary">
@@ -82,10 +105,8 @@ export default function BookTypePage() {
                 className="group flex h-full flex-col border-2 border-slate-100 bg-slate-50 p-8 text-left transition-all hover:border-slate-300"
               >
                 <div className="mb-6 flex w-full justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center border-2 border-primary bg-white text-primary transition-colors group-hover:bg-primary group-hover:text-white">
-                    <span className="material-symbols-outlined text-2xl">
-                      calendar_today
-                    </span>
+                  <div className="flex h-12 w-12 items-center justify-center rounded border-2 border-accent/40 bg-white text-accent transition-colors group-hover:bg-accent group-hover:text-white">
+                    <CalendarIcon />
                   </div>
                 </div>
                 <h3 className="mb-3 text-xl font-black uppercase tracking-tight text-slate-900">
@@ -108,19 +129,19 @@ export default function BookTypePage() {
                 href="/dashboard"
                 className="flex items-center gap-2 pl-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 transition-colors hover:text-primary"
               >
-                <span className="material-symbols-outlined text-sm">
-                  west
+                <span className="text-accent">
+                  <ArrowWestIcon />
                 </span>
                 Back
               </Link>
 
               <Link
                 href="/book/route"
-                className="flex items-center gap-3 bg-primary px-8 py-3 text-xs font-black uppercase tracking-[0.2em] text-white shadow-[4px_4px_0px_#ff9b16] transition-all hover:bg-black active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+                className="flex items-center gap-3 bg-primary px-8 py-3 text-xs font-black uppercase tracking-[0.2em] text-white transition-all hover:bg-black"
               >
                 Continue
-                <span className="material-symbols-outlined text-base">
-                  east
+                <span className="text-accent">
+                  <ArrowEastIcon />
                 </span>
               </Link>
             </div>

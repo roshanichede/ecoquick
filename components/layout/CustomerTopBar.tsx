@@ -10,25 +10,30 @@ export function CustomerTopBar() {
   const isDashboard = pathname === "/dashboard";
   const isOrders = pathname.startsWith("/orders");
   const isBook = pathname.startsWith("/book");
-  const isImpact = pathname.startsWith("/impact");
   const isAccount = pathname.startsWith("/account");
   const isHelp = pathname.startsWith("/help");
 
   const linkBase =
-    "text-[10px] sm:text-xs font-semibold uppercase tracking-[0.22em] transition-colors";
+    "nav-tab text-[11px] sm:text-sm font-semibold tracking-[0.08em] transition-colors";
 
   const navButton = (label: string, active: boolean, onClick: () => void) => (
-    <button
-      key={label}
-      onClick={onClick}
-      className={`${linkBase} ${
-        active
-          ? "text-primary border-b-2 border-primary pb-1"
-          : "text-zinc-400 hover:text-primary"
-      }`}
-    >
-      {label}
-    </button>
+    active ? (
+      <span
+        key={label}
+        className={`${linkBase} nav-tab-active text-primary`}
+        aria-current="page"
+      >
+        {label}
+      </span>
+    ) : (
+      <button
+        key={label}
+        onClick={onClick}
+        className={`${linkBase} text-zinc-600 hover:text-primary`}
+      >
+        {label}
+      </button>
+    )
   );
 
   const handleSignOut = () => {
@@ -41,33 +46,37 @@ export function CustomerTopBar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/80 py-3 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 sm:px-6">
-        <div className="flex flex-1 items-center gap-8">
+      <div className="relative mx-auto flex max-w-6xl items-center gap-4 px-5 sm:px-6">
+        {/* Left: logo */}
+        <div className="flex items-center">
           <button onClick={() => router.push("/dashboard")}>
-            <BrandLogo size="sm" />
+            <BrandLogo size="md" />
           </button>
+        </div>
 
-          <nav className="hidden items-center gap-7 text-zinc-500 md:flex">
+        {/* Center: nav – fixed centered */}
+        <nav className="pointer-events-auto absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-6 text-zinc-500 md:flex">
           {navButton("Dashboard", isDashboard, () => router.push("/dashboard"))}
           {navButton("Book", isBook, () => router.push("/book/type"))}
           {navButton("Orders", isOrders, () => router.push("/orders"))}
-          {navButton("Impact", isImpact, () => router.push("/impact"))}
           {navButton("Account", isAccount, () => router.push("/account/settings"))}
           {navButton("Help", isHelp, () => router.push("/help"))}
-          </nav>
-        </div>
+        </nav>
 
-        <div className="flex items-center gap-3">
+        {/* Right: actions */}
+        <div className="ml-auto flex items-center gap-3">
           <button
+            aria-label="Notifications"
+            title="Notifications"
             className="hidden h-9 w-9 items-center justify-center rounded-full border border-zinc-200 text-zinc-700 shadow-[0_0_0_1px_rgba(0,0,0,0.02)] transition hover:border-zinc-400 hover:bg-zinc-50 hover:text-zinc-900 sm:flex"
-            onClick={() => router.push("/help")}
+            onClick={() => router.push("/notifications")}
           >
             <span className="material-symbols-outlined text-base">
               notifications
             </span>
           </button>
           <button
-            className="hidden h-9 items-center rounded-full border border-zinc-300 px-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-700 transition hover:border-[#3f0075] hover:bg-[#3f0075] hover:text-white sm:inline-flex"
+            className="hidden h-9 items-center rounded-full border border-zinc-300 px-3 text-sm font-medium text-zinc-700 transition hover:border-[#3f0075] hover:bg-[#3f0075] hover:text-white sm:inline-flex"
             onClick={handleSignOut}
           >
             Sign out

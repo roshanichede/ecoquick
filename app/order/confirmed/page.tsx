@@ -1,9 +1,9 @@
-"use client";
+ "use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { BrandLogo } from "@/components/layout/BrandLogo";
+import { CustomerTopBar } from "@/components/layout/CustomerTopBar";
 
 export default function OrderConfirmedPage() {
   const router = useRouter();
@@ -24,55 +24,8 @@ export default function OrderConfirmedPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-white text-slate-900">
-      {/* Header */}
-      <header className="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4 md:px-8">
-        <BrandLogo size="sm" />
-        <nav className="hidden items-center gap-8 md:flex">
-          <Link
-            href="/dashboard"
-            className="text-[11px] font-bold uppercase tracking-widest text-slate-400 transition-colors hover:text-primary"
-          >
-            Dashboard
-          </Link>
-          <Link
-            href="/book/type"
-            className="text-[11px] font-bold uppercase tracking-widest text-slate-400 transition-colors hover:text-primary"
-          >
-            Deliveries
-          </Link>
-          <Link
-            href="/business"
-            className="text-[11px] font-bold uppercase tracking-widest text-slate-400 transition-colors hover:text-primary"
-          >
-            Invoices
-          </Link>
-          <Link
-            href="/help"
-            className="text-[11px] font-bold uppercase tracking-widest text-slate-400 transition-colors hover:text-primary"
-          >
-            Support
-          </Link>
-        </nav>
-        <div className="flex items-center gap-4 md:gap-6">
-          <div className="hidden flex-col items-end md:flex">
-            <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
-              Account
-            </span>
-            <span className="text-xs font-bold tracking-tight text-primary">
-              {customerName}
-            </span>
-          </div>
-          <button
-            className="flex h-10 w-10 items-center justify-center border border-slate-200 transition-colors hover:bg-slate-50"
-            onClick={() => router.push("/dashboard")}
-          >
-            <span className="material-symbols-outlined text-xl text-slate-400">
-              person
-            </span>
-          </button>
-        </div>
-      </header>
+    <div className="page-fade flex min-h-screen flex-col bg-slate-50 text-slate-900">
+      <CustomerTopBar />
 
       {/* Main */}
       <main className="relative flex flex-1 items-center justify-center overflow-hidden bg-white px-6 py-16 md:py-20">

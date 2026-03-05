@@ -7,7 +7,8 @@ export default function BusinessPage() {
     <div className="landing-shell bg-white text-[#151018] antialiased">
       <div className="landing-grid-layer" />
 
-      <div className="landing-content mx-auto w-full max-w-6xl px-6 lg:px-8">
+      {/* Full-width header */}
+      <div className="landing-content px-6 lg:px-8">
         <LandingHeader />
       </div>
 

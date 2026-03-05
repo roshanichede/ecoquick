@@ -34,13 +34,14 @@ export default function SignupPage() {
   };
   return (
     <div className="min-h-screen bg-white text-[#3e0074]">
-      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
+      {/* Full-width header */}
+      <div className="px-4 md:px-6">
         <LandingHeader />
       </div>
 
       <main className="flex min-h-screen flex-col items-center px-4 py-12 md:py-24">
-        <div className="w-full max-w-xl" id="signup-form">
-          <h1 className="mb-12 text-center text-5xl uppercase leading-[0.85] tracking-[-0.06em] md:text-left md:text-[90px]">
+        <div className="w-full max-w-3xl" id="signup-form">
+          <h1 className="mb-12 text-center text-5xl uppercase leading-[0.85] tracking-[-0.06em] md:text-[70px]">
             Join EcoQuick
           </h1>
 
@@ -49,19 +50,25 @@ export default function SignupPage() {
               <span className="text-[10px] font-black uppercase tracking-[0.22em] text-[#3e0074]/60">
                 01 / Select Profile
               </span>
-              <div className="grid grid-cols-2 border border-[#3e0074] overflow-hidden">
+              <div className="flex flex-wrap gap-3 md:gap-4">
                 <div
-                  className={`flex cursor-pointer flex-col items-center justify-center gap-3 p-8 transition-colors ${
+                  className={`group flex min-w-[120px] flex-1 cursor-pointer items-center justify-center gap-2 rounded-full border px-4 py-3 text-xs md:text-sm transition-all md:px-6 md:py-3.5 ${
                     profile === "customer"
-                      ? "bg-[#3e0074] text-white"
-                      : "bg-white text-[#3e0074]"
+                      ? "border-[#3e0074] bg-[#3e0074] text-white shadow-lg shadow-[#3e0074]/30"
+                      : "border-[#3e0074]/30 bg-white text-[#3e0074] hover:border-[#3e0074] hover:bg-[#3e0074]/5"
                   }`}
                   onClick={() => setProfile("customer")}
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-accent">
+                  <span
+                    className={`flex h-8 w-8 items-center justify-center rounded-full text-accent transition-colors ${
+                      profile === "customer"
+                        ? "bg-white/15"
+                        : "bg-[#3e0074]/5"
+                    }`}
+                  >
                     <svg
                       viewBox="0 0 24 24"
-                      className="h-6 w-6"
+                      className="h-5 w-5"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
@@ -72,22 +79,28 @@ export default function SignupPage() {
                       <path d="M5.5 19c1.2-3 3.3-4.5 6.5-4.5S16.8 16 18 19" />
                     </svg>
                   </span>
-                  <span className="text-[10px] font-black uppercase tracking-[0.22em]">
+                  <span className="text-[11px] md:text-xs font-semibold tracking-[0.16em]">
                     Customer
                   </span>
                 </div>
                 <div
-                  className={`flex cursor-pointer flex-col items-center justify-center gap-3 border-l border-[#3e0074] transition-colors ${
+                  className={`group flex min-w-[120px] flex-1 cursor-pointer items-center justify-center gap-2 rounded-full border px-4 py-3 text-xs md:text-sm transition-all md:px-6 md:py-3.5 ${
                     profile === "driver"
-                      ? "bg-[#3e0074] text-white"
-                      : "bg-white text-[#3e0074]"
+                      ? "border-[#3e0074] bg-[#3e0074] text-white shadow-lg shadow-[#3e0074]/30"
+                      : "border-[#3e0074]/30 bg-white text-[#3e0074] hover:border-[#3e0074] hover:bg-[#3e0074]/5"
                   }`}
                   onClick={() => setProfile("driver")}
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#3e0074]/5 text-accent">
+                  <span
+                    className={`flex h-8 w-8 items-center justify-center rounded-full text-accent transition-colors ${
+                      profile === "driver"
+                        ? "bg-white/15"
+                        : "bg-[#3e0074]/5"
+                    }`}
+                  >
                     <svg
                       viewBox="0 0 24 24"
-                      className="h-6 w-6"
+                      className="h-5 w-5"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
@@ -100,7 +113,7 @@ export default function SignupPage() {
                       <circle cx="18" cy="17" r="1.8" />
                     </svg>
                   </span>
-                  <span className="text-[10px] font-black uppercase tracking-[0.22em] text-inherit">
+                  <span className="text-[11px] md:text-xs font-semibold tracking-[0.16em]">
                     Driver
                   </span>
                 </div>

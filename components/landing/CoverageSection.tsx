@@ -15,7 +15,7 @@ export function CoverageSection() {
         </p>
       </div>
 
-      <div className="mt-8 overflow-hidden border border-zinc-200">
+      <div className="mt-8 overflow-hidden border border-zinc-300">
         <div className="grid grid-cols-2 md:grid-cols-4">
           {[
             "Kingston",

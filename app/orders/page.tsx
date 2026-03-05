@@ -1,6 +1,4 @@
- "use client";
-
-import Link from "next/link";
+"use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CustomerTopBar } from "@/components/layout/CustomerTopBar";
@@ -72,38 +70,43 @@ export default function OrderHistoryPage() {
     <div className="page-fade min-h-screen overflow-x-hidden bg-white text-slate-900">
       <CustomerTopBar />
 
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-5 py-8 sm:px-6">
-        <div className="mb-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-5 py-10 sm:px-6 lg:py-12">
+        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <h1 className="mb-2 text-4xl font-black uppercase tracking-tighter text-primary sm:text-5xl md:text-6xl">
-              Order History
+            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-400">
+              Activity
+            </p>
+            <h1 className="mb-3 text-3xl tracking-tight text-primary sm:text-4xl md:text-5xl">
+              ORDER HISTORY
             </h1>
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="bg-primary px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.22em] text-white">
-                32 Total Orders
+            <div className="flex flex-wrap items-center gap-2 text-[11px]">
+              <span className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-3 py-1 font-semibold text-primary">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                32 total orders
               </span>
-              <span className="bg-emerald-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.22em] text-white">
-                100% Carbon Neutral
+              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 font-semibold text-emerald-700">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                100% carbon neutral
               </span>
             </div>
           </div>
-          <div className="flex flex-wrap gap-1 border-2 border-primary bg-white p-1 text-[10px] font-black uppercase tracking-[0.22em] shadow-[4px_4px_0px_0px_#3e0074] sm:shadow-[4px_4px_0px_0px_#3e0074] md:shadow-[4px_4px_0px_0px_#3e0074]">
-            <button className="bg-primary px-4 py-2 text-white">
-              All Orders
+          <div className="flex flex-wrap items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-1 py-1 text-[11px] font-semibold text-slate-600 shadow-sm backdrop-blur">
+            <button className="rounded-full bg-primary px-4 py-1.5 text-white shadow-sm">
+              All orders
             </button>
-            <button className="px-4 py-2 text-primary hover:bg-primary/5">
+            <button className="rounded-full px-4 py-1.5 hover:bg-slate-50">
               Delivered
             </button>
-            <button className="px-4 py-2 text-primary hover:bg-primary/5">
-              In Transit
+            <button className="rounded-full px-4 py-1.5 hover:bg-slate-50">
+              In transit
             </button>
-            <button className="px-4 py-2 text-primary hover:bg-primary/5">
+            <button className="rounded-full px-4 py-1.5 hover:bg-slate-50">
               Cancelled
             </button>
-            <div className="mx-2 h-8 w-px self-center bg-slate-200" />
-            <button className="flex items-center gap-2 px-4 py-2 text-primary hover:bg-primary/5">
-              Last 30 Days
-              <span className="material-symbols-outlined text-sm">
+            <span className="mx-1 h-4 w-px bg-slate-200" />
+            <button className="inline-flex items-center gap-1 rounded-full px-3 py-1.5 hover:bg-slate-50">
+              Last 30 days
+              <span className="material-symbols-outlined text-xs">
                 expand_more
               </span>
             </button>
@@ -111,85 +114,83 @@ export default function OrderHistoryPage() {
         </div>
 
         {/* Desktop table */}
-        <div className="hidden border border-primary bg-white shadow-[6px_6px_0px_0px_#3e0074] md:block">
-          <div className="grid grid-cols-12 bg-primary px-6 py-3 text-[10px] font-black uppercase tracking-[0.22em] text-white">
-            <div className="col-span-2">Order ID</div>
-            <div className="col-span-2">Date &amp; Time</div>
-            <div className="col-span-4">Destination</div>
-            <div className="col-span-1">Status</div>
-            <div className="col-span-1 text-right">Price</div>
-            <div className="col-span-2 text-right">Actions</div>
-          </div>
-          <div className="divide-y divide-slate-100">
-            {orders.map((order, idx) => (
-              <div
-                key={order.id}
-                className={`order-row grid grid-cols-12 items-center px-6 py-5 transition-colors ${
-                  idx % 2 === 1 ? "bg-primary/5" : "bg-white"
-                } hover:bg-primary/10`}
-              >
-                <div className="col-span-2 text-sm font-black tracking-tight">
-                  {order.id}
+        <div className="hidden md:block">
+          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white/90 shadow-sm backdrop-blur-sm">
+            <div className="grid grid-cols-12 border-b border-slate-100 bg-slate-50/80 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+              <div className="col-span-2">Order ID</div>
+              <div className="col-span-2">Date &amp; time</div>
+              <div className="col-span-4">Destination</div>
+              <div className="col-span-1">Status</div>
+              <div className="col-span-1 text-right">Price</div>
+              <div className="col-span-2 text-right">Actions</div>
+            </div>
+            <div className="divide-y divide-slate-100">
+              {orders.map((order) => (
+                <div
+                  key={order.id}
+                  className="grid grid-cols-12 items-center bg-white/80 px-6 py-4 text-sm transition-colors hover:bg-slate-50"
+                >
+                  <div className="col-span-2 font-semibold tracking-tight text-slate-900">
+                    {order.id}
+                  </div>
+                  <div className="col-span-2 text-sm font-medium text-slate-500">
+                    {order.date}
+                    <span className="block text-[10px] uppercase opacity-50">
+                      {order.time}
+                    </span>
+                  </div>
+                  <div className="col-span-4 pr-8">
+                    <p className="truncate text-sm font-semibold text-slate-900">
+                      {order.destination}
+                    </p>
+                    <p className="mt-0.5 text-[10px] font-medium uppercase tracking-tight text-slate-400">
+                      {order.meta}
+                    </p>
+                  </div>
+                  <div className="col-span-1">
+                    <span
+                      className={`px-2 py-1 text-[10px] font-black uppercase tracking-[0.22em] ${order.statusClass}`}
+                    >
+                      {order.status}
+                    </span>
+                  </div>
+                  <div className="col-span-1 text-right font-black text-primary">
+                    {order.price}
+                  </div>
+                  <div className="col-span-2 flex justify-end gap-2">
+                    <button className="rounded-full border border-slate-200 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-700 hover:border-primary hover:text-primary">
+                      Repeat
+                    </button>
+                    <button className="rounded-full bg-primary/90 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white hover:bg-primary">
+                      Invoice
+                    </button>
+                  </div>
                 </div>
-                <div className="col-span-2 text-sm font-medium text-slate-500">
-                  {order.date}
-                  <span className="block text-[10px] uppercase opacity-50">
-                    {order.time}
+              ))}
+            </div>
+            <div className="flex items-center justify-between border-t border-slate-100 bg-slate-50/60 px-6 py-3 text-[11px] text-slate-500">
+              <span>Showing 4 of 32 orders</span>
+              <div className="flex gap-1">
+                <button className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-300 text-xs text-slate-500 hover:border-primary hover:text-primary">
+                  <span className="material-symbols-outlined text-sm">
+                    chevron_left
                   </span>
-                </div>
-                <div className="col-span-4 pr-8">
-                  <p className="truncate text-sm font-bold">
-                    {order.destination}
-                  </p>
-                  <p className="mt-0.5 text-[10px] font-bold uppercase tracking-tight text-slate-400">
-                    {order.meta}
-                  </p>
-                </div>
-                <div className="col-span-1">
-                  <span
-                    className={`px-2 py-1 text-[10px] font-black uppercase tracking-[0.22em] ${order.statusClass}`}
-                  >
-                    {order.status}
+                </button>
+                <button className="flex h-8 w-8 items-center justify-center rounded-full border border-primary bg-primary text-[10px] font-semibold text-white">
+                  1
+                </button>
+                <button className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-300 text-[10px] font-semibold text-slate-600 hover:border-primary hover:text-primary">
+                  2
+                </button>
+                <button className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-300 text-[10px] font-semibold text-slate-600 hover:border-primary hover:text-primary">
+                  3
+                </button>
+                <button className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-300 text-xs text-slate-500 hover:border-primary hover:text-primary">
+                  <span className="material-symbols-outlined text-sm">
+                    chevron_right
                   </span>
-                </div>
-                <div className="col-span-1 text-right font-black text-primary">
-                  {order.price}
-                </div>
-                <div className="col-span-2 flex justify-end gap-1">
-                  <button className="bg-accent px-3 py-2 text-[9px] font-black uppercase tracking-[0.22em] text-white hover:brightness-110">
-                    Repeat
-                  </button>
-                  <button className="bg-slate-900 px-3 py-2 text-[9px] font-black uppercase tracking-[0.22em] text-white hover:bg-primary">
-                    Invoice
-                  </button>
-                </div>
+                </button>
               </div>
-            ))}
-          </div>
-          <div className="flex items-center justify-between border-t border-slate-200 bg-slate-50 px-6 py-4">
-            <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-400">
-              Showing 4 of 32 orders
-            </span>
-            <div className="flex gap-1">
-              <button className="flex h-8 w-8 items-center justify-center border border-slate-300 hover:bg-primary hover:text-white">
-                <span className="material-symbols-outlined text-sm">
-                  chevron_left
-                </span>
-              </button>
-              <button className="flex h-8 w-8 items-center justify-center border border-primary bg-primary text-[10px] font-black text-white">
-                1
-              </button>
-              <button className="flex h-8 w-8 items-center justify-center border border-slate-300 text-[10px] font-black hover:bg-primary hover:text-white">
-                2
-              </button>
-              <button className="flex h-8 w-8 items-center justify-center border border-slate-300 text-[10px] font-black hover:bg-primary hover:text-white">
-                3
-              </button>
-              <button className="flex h-8 w-8 items-center justify-center border border-slate-300 hover:bg-primary hover:text-white">
-                <span className="material-symbols-outlined text-sm">
-                  chevron_right
-                </span>
-              </button>
             </div>
           </div>
         </div>
@@ -199,14 +200,16 @@ export default function OrderHistoryPage() {
           {orders.slice(0, 2).map((order) => (
             <div
               key={order.id}
-              className="border-2 border-primary bg-white p-4 text-xs shadow-[4px_4px_0px_0px_#3e0074]"
+              className="rounded-2xl border border-slate-200 bg-white/80 p-4 text-xs shadow-sm backdrop-blur-sm"
             >
               <div className="mb-4 flex items-start justify-between">
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-tight text-primary">
+                  <p className="text-[10px] font-semibold uppercase tracking-tight text-slate-500">
                     {order.id}
                   </p>
-                  <p className="mt-1 text-sm font-black">{order.price}</p>
+                  <p className="mt-1 text-sm font-semibold text-slate-900">
+                    {order.price}
+                  </p>
                 </div>
                 <span
                   className={`px-2 py-1 text-[9px] font-black uppercase tracking-[0.22em] ${order.statusClass}`}
@@ -221,10 +224,10 @@ export default function OrderHistoryPage() {
                 {order.date} • {order.time}
               </p>
               <div className="grid grid-cols-2 gap-2">
-                <button className="bg-accent py-3 text-[10px] font-black uppercase tracking-[0.22em] text-white">
+                <button className="rounded-full border border-slate-200 py-2.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-700 hover:border-primary hover:text-primary">
                   Repeat Order
                 </button>
-                <button className="bg-primary py-3 text-[10px] font-black uppercase tracking-[0.22em] text-white">
+                <button className="rounded-full bg-primary py-2.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
                   View Invoice
                 </button>
               </div>

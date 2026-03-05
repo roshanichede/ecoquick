@@ -150,7 +150,7 @@ body {
       transparent 32%
     );
   background-size: 26px 26px, 26px 26px, 520px 520px, 520px 520px;
-  opacity: 0.4;
+  opacity: 0.2;
   transform: scale(1.03);
   mix-blend-mode: multiply;
   /* transition:
@@ -288,6 +288,46 @@ body {
   color: #ffffff;
   box-shadow: 0 10px 24px rgba(62, 0, 116, 0.18);
   transform: translateY(-1px);
+}
+
+.text-outline-primary {
+  color: #ffffff;
+  -webkit-text-stroke: 3px #3e0074;
+  text-stroke: 3px #3e0074;
+}
+
+.nav-tab {
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.nav-tab::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  border-radius: 9999px;
+  background-color: #3e0075;
+  opacity: 0;
+  transition:
+    width 150ms ease-out,
+    opacity 150ms ease-out,
+    transform 150ms ease-out;
+}
+
+.nav-tab:hover::after {
+  width: 45%;
+  opacity: 0.7;
+}
+
+.nav-tab-active::after {
+  width: 80%;
+  height: 3px;
+  opacity: 1;
+  bottom: 0;
 }
 
 

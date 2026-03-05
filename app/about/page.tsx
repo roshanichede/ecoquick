@@ -7,7 +7,8 @@ export default function AboutPage() {
     <div className="landing-shell min-h-screen bg-white text-[#3e0074] antialiased">
       <div className="landing-grid-layer" />
 
-      <div className="landing-content mx-auto w-full max-w-6xl px-6 lg:px-8">
+      {/* Full-width header */}
+      <div className="landing-content px-6 lg:px-8">
         <LandingHeader />
       </div>
 
@@ -115,45 +116,59 @@ export default function AboutPage() {
                 <div className="h-px w-16 bg-[#3e0074]/20" />
               </div>
 
-              <div className="col-span-12 grid border border-[#3e0074]/10 bg-[#3e0074]/10 lg:col-span-8 md:grid-cols-2 gap-px">
-                {[
-                  {
-                    title: "Speed & Reliability",
-                    body: "Precision is the heartbeat of our operation, measured in milliseconds.",
-                    variant: "white",
-                  },
-                  {
-                    title: "Sustainability",
-                    body: "Committed to a 100% carbon-neutral future, without compromise.",
-                    variant: "subtle",
-                  },
-                  {
-                    title: "Simplicity",
-                    body: "Elegant solutions for complex logistics problems.",
-                    variant: "subtle",
-                  },
-                  {
-                    title: "Community",
-                    body: "Empowering local commerce and providing dignified driver roles.",
-                    variant: "white",
-                  },
-                ].map((value, idx) => (
-                  <div
-                    key={value.title}
-                    className={`space-y-4 p-10 md:p-12 ${
-                      value.variant === "subtle"
-                        ? "bg-[rgba(62,0,116,0.05)]"
-                        : "bg-white"
-                    }`}
-                  >
-                    <h4 className="satoshi-bold text-xl uppercase">
-                      {value.title}
-                    </h4>
-                    <p className="text-[11px] font-medium uppercase leading-relaxed tracking-[0.2em] opacity-60">
-                      {value.body}
-                    </p>
-                  </div>
-                ))}
+              <div className="col-span-12 lg:col-span-8">
+                {/* Customer focus priority tile */}
+                <div className="mb-8 border border-[#3e0074]/10 bg-white p-10 text-[#3e0074] md:p-12">
+                  <h4 className="satoshi-bold text-xl uppercase">
+                    Customer focus
+                  </h4>
+                  <p className="mt-3 text-[11px] font-medium uppercase leading-relaxed tracking-[0.2em] opacity-60">
+                    Your satisfaction is our priority. We go above and beyond to ensure every
+                    delivery exceeds expectations and meets your needs.
+                  </p>
+                </div>
+
+                {/* Base 2x2 grid */}
+                <div className="grid border border-[#3e0074]/10 bg-[#3e0074]/10 md:grid-cols-2 gap-px">
+                  {[
+                    {
+                      title: "Speed & Reliability",
+                      body: "Precision is the heartbeat of our operation, measured in milliseconds.",
+                      variant: "white",
+                    },
+                    {
+                      title: "Sustainability",
+                      body: "Committed to a 100% carbon-neutral future, without compromise.",
+                      variant: "subtle",
+                    },
+                    {
+                      title: "Simplicity",
+                      body: "Elegant solutions for complex logistics problems.",
+                      variant: "subtle",
+                    },
+                    {
+                      title: "Community",
+                      body: "Empowering local commerce and providing dignified driver roles.",
+                      variant: "white",
+                    },
+                  ].map((value) => (
+                    <div
+                      key={value.title}
+                      className={`space-y-4 p-10 md:p-12 ${
+                        value.variant === "subtle"
+                          ? "bg-[rgba(62,0,116,0.05)]"
+                          : "bg-white"
+                      }`}
+                    >
+                      <h4 className="satoshi-bold text-xl uppercase">
+                        {value.title}
+                      </h4>
+                      <p className="text-[11px] font-medium uppercase leading-relaxed tracking-[0.2em] opacity-60">
+                        {value.body}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -169,39 +184,55 @@ export default function AboutPage() {
                 </h2>
                 <div className="relative space-y-16 md:space-y-20">
                   <div className="absolute left-0 top-0 bottom-0 w-px bg-[#3e0074]/10" />
-                  {[
-                    {
-                      label: "2020 — Genesis",
-                      title: "The First Mile",
-                      body: "Reclaiming city streets from diesel fumes. We proved that efficiency and ecology are not mutually exclusive.",
-                    },
-                    {
-                      label: "2022 — Expansion",
-                      title: "The Scale-Up",
-                      body: "Developing our proprietary AI engine allowed us to expand across entire metropolitan regions.",
-                    },
-                    {
-                      label: "Present — Impact",
-                      title: "The Future",
-                      body: "EcoQuick is the benchmark for sustainable logistics, serving thousands with purpose.",
-                    },
-                  ].map((item) => (
-                    <div
-                      key={item.label}
-                      className="relative pl-10 md:pl-16"
-                    >
-                      <div className="absolute left-0 top-2 h-px w-4 bg-[#3e0074]" />
-                      <span className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-30">
-                        {item.label}
-                      </span>
-                      <h4 className="satoshi-bold mt-3 mb-4 text-2xl uppercase">
-                        {item.title}
-                      </h4>
-                      <p className="max-w-md text-base font-light leading-relaxed text-[#3e0074]/70">
-                        {item.body}
-                      </p>
-                    </div>
-                  ))}
+
+                  <div className="relative pl-10 md:pl-16">
+                    <div className="absolute left-0 top-2 h-px w-4 bg-[#3e0074]" />
+                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-30">
+                      2023 — Genesis
+                    </span>
+                    <h4 className="satoshi-bold mt-3 mb-4 text-2xl uppercase">
+                      Born from a simple idea
+                    </h4>
+                    <p className="max-w-md text-base font-light leading-relaxed text-[#3e0074]/70">
+                      EcoQuick was born from a simple idea: Why wait longer than
+                      necessary for a parcel and why should delivery services
+                      harm the environment? Founded in November 2023, we started
+                      with a single bicycle and a vision for sustainable,
+                      reliable logistics.
+                    </p>
+                  </div>
+
+                  <div className="relative pl-10 md:pl-16">
+                    <div className="absolute left-0 top-2 h-px w-4 bg-[#3e0074]" />
+                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-30">
+                      Today — Community
+                    </span>
+                    <h4 className="satoshi-bold mt-3 mb-4 text-2xl uppercase">
+                      Serving our community
+                    </h4>
+                    <p className="max-w-md text-base font-light leading-relaxed text-[#3e0074]/70">
+                      Today, we&apos;re proud to operate a fleet of electric
+                      vehicles, serving hundreds of customers across our local
+                      community. Our team of dedicated drivers is committed to
+                      eco-friendly practices, ensuring every package reaches its
+                      destination safely and on time.
+                    </p>
+                  </div>
+
+                  <div className="relative pl-10 md:pl-16">
+                    <div className="absolute left-0 top-2 h-px w-4 bg-[#3e0074]" />
+                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-30">
+                      Future — Impact
+                    </span>
+                    <h4 className="satoshi-bold mt-3 mb-4 text-2xl uppercase">
+                      Part of the solution
+                    </h4>
+                    <p className="max-w-md text-base font-light leading-relaxed text-[#3e0074]/70">
+                      EcoQuick isn&apos;t just a delivery company – it&apos;s
+                      part of the solution to creating a cleaner, faster and
+                      more sustainable future for our community and our planet.
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -225,19 +256,20 @@ export default function AboutPage() {
             <div className="relative z-10 w-full">
               <div className="grid items-center gap-10 md:grid-cols-12">
                 <div className="col-span-12 lg:col-span-7">
-                  <h2 className="satoshi-thin mb-8 text-5xl uppercase leading-[0.9] md:text-7xl lg:text-8xl">
+                  <h2 className="satoshi-thin relative mb-8 text-5xl uppercase leading-[0.9] md:text-7xl lg:text-8xl">
                     Join The
                     <br />
-                    Revolution
+                    Revolutio
+                    <span className="text-outline-primary relative z-20">n</span>
                   </h2>
                   <p className="mb-10 text-xs font-light uppercase tracking-[0.2em] opacity-60 md:text-sm">
                     Building the future of urban movement together.
                   </p>
                 </div>
-                <div className="col-span-12 flex flex-col gap-4 sm:flex-row lg:col-span-5 lg:flex-col">
+                <div className="relative col-span-12 flex flex-col gap-4 sm:flex-row lg:col-span-5 lg:flex-col">
                   <Link
                     href="/signup"
-                    className="sharp-corners flex-1 border border-[#3e0074] bg-[#3e0074] px-8 py-5 text-[10px] font-bold uppercase tracking-[0.25em] text-white transition-all hover:bg-black"
+                    className="sharp-corners ml-6 flex-1 border border-[#3e0074] bg-[#3e0074] px-8 py-5 text-[10px] font-bold uppercase tracking-[0.25em] text-white transition-all hover:bg-black sm:ml-10"
                   >
                     Book your first delivery
                   </Link>
