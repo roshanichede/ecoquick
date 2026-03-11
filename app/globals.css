@@ -330,4 +330,16 @@ body {
   bottom: 0;
 }
 
+@keyframes bike-ride {
+  0% {
+    transform: translateX(-30px);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+.animate-bike-ride {
+  animation: bike-ride 12s linear infinite;
+}
 

@@ -1,10 +1,10 @@
 export function FutureDeliverySection() {
   return (
-    <section id="delivery" className="mt-20 border-t border-zinc-200 pt-12">
+    <section id="delivery" className="mt-20 border-t border-zinc-400 pt-12">
       <div className="flex items-end justify-between gap-6">
         <div className="space-y-2">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-zinc-400">
-            01 / The future of delivery
+          <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-zinc-500">
+            02 / The future of delivery
           </p>
         </div>
       </div>
@@ -81,6 +81,26 @@ export function FutureDeliverySection() {
             </p>
           </div>
         ))}
+      </div>
+
+      <div className="mt-12 -mx-5 bg-[#3f0075] px-5 py-10 text-white sm:-mx-6 sm:px-6">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 md:grid-cols-4 md:gap-10">
+          {[
+            { top: "99.8%", bottom: "On-time delivery" },
+            { top: "LEAD", bottom: "Industry speed" },
+            { top: "500K+", bottom: "Happy customers" },
+            { top: "24/7", bottom: "Availability" },
+          ].map((m) => (
+            <div key={m.top} className="text-center">
+              <p className="text-3xl font-extrabold tracking-tight md:text-4xl">
+                {m.top}
+              </p>
+              <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-white/80">
+                {m.bottom}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
